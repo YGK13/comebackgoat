@@ -163,6 +163,9 @@ def check_lanes(l: dict, errs: list[str], warns: list[str]) -> None:
     cap = (l.get("job_insurance") or {}).get("daily_cap", 0)
     if isinstance(cap, int) and cap > 10:
         errs.append("lanes.yaml: job_insurance.daily_cap above 10 is not allowed (quality and platform rules)")
+    net = l.get("network") or {}
+    if isinstance(net.get("max_drafts_per_day", 0), int) and net.get("max_drafts_per_day", 0) > 5:
+        errs.append("lanes.yaml: network.max_drafts_per_day above 5 is not allowed (no mass outreach)")
     ap = l.get("autopilot") or {}
     if ap.get("approval", "draft_only") != "draft_only":
         errs.append("lanes.yaml: autopilot.approval must be draft_only")

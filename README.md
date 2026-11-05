@@ -1,6 +1,6 @@
 # Revenue Engine
 
-Five Claude engines that find money for a solo consultant, coach, advisor or fractional executive in their first year out of corporate, plus one onboarding that makes them accurate.
+Six Claude engines that find money for a solo consultant, coach, advisor or fractional executive in their first year out of corporate, plus one onboarding that makes them accurate.
 
 | Skill | What it does | First-run time |
 |---|---|---|
@@ -9,6 +9,7 @@ Five Claude engines that find money for a solo consultant, coach, advisor or fra
 | **grant-hunter** | No-equity money you actually qualify for (grants, fellowships, prizes, pitch competitions, credits), verified open, scam-filtered, prepared to the last click. | 15 min per run |
 | **project-hunter** | Paid work: inbound requests, warm-network reactivation, public "looking for" posts, fractional roles, RFPs, expert calls, workshops, speaking. Drafts every reply in your voice. | 15 min per run |
 | **job-insurance** | A quiet, capped, verified job search in the background. Tailored resume and filled form for each role; you press Submit. | 20 min per run |
+| **network-engine** | Maps your network from your own LinkedIn export, contacts and email, scores warmth, finds the warm path for every job, project and grant, and (opt-in) spots recruiting, partner-referral and scouting income. Drafts only. | 15 min after your LinkedIn export arrives |
 | **revenue-autopilot** | Schedules the engines and sends one short Revenue Brief a day. Reply "send P-2, submit G-5". | 5 min |
 
 **The rule that never changes:** the engines prepare; you press Send or Submit. Nothing is sent, submitted, signed, paid or posted without your yes.

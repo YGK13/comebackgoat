@@ -18,9 +18,12 @@ RevenueEngine/
     grants.csv           grant-hunter queue
     projects.csv         project-hunter queue
     jobs.csv             job-insurance queue
+    network.csv          network-engine intros and reconnections
     learnings.md         what got replies, wins, skips and why (all engines)
   packages/
     <YYYY-MM-DD>-<slug>/ one folder per prepared application or proposal
+  private/
+    network.json         warmth-scored network index (other people's data: never published or committed)
   runs/
     <YYYY-MM-DD>-<engine>.md   one run log per engine per day
 ```
@@ -31,7 +34,7 @@ All trackers share the first seven columns so revenue-autopilot can merge them i
 
 `id,date_found,engine,title,link,value_usd,status,deadline,score,prepared,next_action,notes`
 
-- `id`: `<engine-prefix>-<n>` (M-, G-, P-, J-), never reused.
+- `id`: `<engine-prefix>-<n>` (M-, G-, P-, J-, N-), never reused.
 - `value_usd`: a number only when the source states it; otherwise empty. Never an estimate.
 - `status`: one of `found`, `prepared`, `needs_you`, `sent`, `submitted`, `won`, `lost`, `skipped`, `expired`.
 - `prepared`: under 80 characters ("Gmail draft ready", "Form filled, Submit waits", "Claim link + steps").

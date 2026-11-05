@@ -100,6 +100,12 @@ class ValidatorTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn("daily_cap", out)
 
+    def test_network_draft_cap(self):
+        self.replace("lanes.yaml", "max_drafts_per_day: 5", "max_drafts_per_day: 40")
+        code, out = run(self.ws)
+        self.assertEqual(code, 1)
+        self.assertIn("network.max_drafts_per_day", out)
+
     def test_ein_number_field_rejected(self):
         self.replace("claims.yaml", "ein_on_file: true", "ein_on_file: true\n  ein: \"12-3456789\"")
         code, out = run(self.ws)

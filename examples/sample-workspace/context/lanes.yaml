@@ -38,6 +38,12 @@ job_insurance:
   adjacent_titles: []
   target_companies: []
 
+network:
+  enabled: true
+  rebuild: monthly             # rebuild the index when a fresh LinkedIn export lands
+  max_drafts_per_day: 5        # reconnection and intro drafts across all lanes; maximum 5
+  connector_income: false      # recruiting referrals, partner referrals, venture scouting (opt-in)
+
 autopilot:
   digest_time: "08:00"
   max_drafts_per_run: 8
