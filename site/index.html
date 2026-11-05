@@ -74,6 +74,28 @@ section.hero{border-top:0;padding-block:32px 72px}
 .stat .src{font:400 .78rem/1.4 var(--mono);color:var(--granite)}
 .stat .src a{text-decoration-color:var(--line)}
 .kicker{margin-top:32px;font-size:1.1rem;font-weight:600}
+/* problem */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px}
+.fact{display:flex;flex-direction:column;gap:10px;min-width:0;border-top:4px solid var(--ink);padding-top:14px}
+.fact .num{font:900 clamp(2.8rem,6vw,3.8rem)/.9 var(--display);font-variant-numeric:tabular-nums}
+.fact .src{font:400 .78rem/1.4 var(--mono);color:var(--granite)}
+.fact .src a{text-decoration-color:var(--line)}
+.lead-wide{margin-top:32px;font-size:1.12rem;max-width:70ch}
+.cost{margin-top:40px;display:grid;grid-template-columns:1.2fr 1fr;gap:24px 40px;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--blaze);border-radius:8px;padding:24px}
+.cost-copy{display:flex;flex-direction:column;gap:10px;min-width:0}
+.cost-label{font-weight:600;margin-top:6px}
+.cost-label output{font-variant-numeric:tabular-nums}
+input[type=range]{padding:0;border:0;background:transparent;accent-color:var(--blaze)}
+.cost-out{display:flex;flex-direction:column;gap:14px;justify-content:center}
+.cost-out div{display:flex;flex-direction:column}
+.cost-num{font:900 clamp(2.4rem,5vw,3.2rem)/1 var(--display);color:var(--blaze);font-variant-numeric:tabular-nums}
+.cost-note{grid-column:1/-1;font:400 .78rem/1.4 var(--mono);color:var(--granite)}
+.sub{margin-top:48px}
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.voices blockquote{margin:0;background:var(--tint);border-radius:6px;padding:18px;font-size:1.02rem;font-weight:500;min-width:0}
+.blockers{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.blockers div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.turn{margin-top:40px;font:900 clamp(1.7rem,3.6vw,2.4rem)/1.05 var(--display);text-transform:uppercase;max-width:none;color:var(--blaze)}
 /* engines */
 .engines{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:36px;border-top:1px solid var(--line)}
 .engine{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;padding:20px 0;border-bottom:1px solid var(--line);min-width:0}
@@ -125,12 +147,14 @@ textarea{min-height:86px;resize:vertical}
 footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:.88rem;color:var(--granite)}
 @media (max-width:860px){
   .hero-grid,.plan-grid,.founder,.apply{grid-template-columns:1fr;gap:32px}
-  .stats,.rails{grid-template-columns:1fr}
+  .stats,.rails,.blockers{grid-template-columns:1fr}
+  .facts,.voices{grid-template-columns:1fr 1fr}
+  .cost{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   .engines{grid-template-columns:1fr}
   .engine:nth-child(odd),.engine:nth-child(even){padding-left:0;padding-right:0;border-left:0}
 }
-@media (max-width:520px){ form{grid-template-columns:1fr} .steps{grid-template-columns:1fr} section{padding-block:56px} }
+@media (max-width:520px){ .facts,.voices{grid-template-columns:1fr} form{grid-template-columns:1fr} .steps{grid-template-columns:1fr} section{padding-block:56px} }
 @media (prefers-reduced-motion:no-preference){
   .mail{animation:arrive .7s cubic-bezier(.2,.8,.2,1) both .15s}
   @keyframes arrive{from{transform:translateY(14px) rotate(-1deg);opacity:.001}to{transform:none;opacity:1}}
@@ -152,7 +176,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;fle
       <div class="hero-copy">
         <span class="eyebrow">For leaders who were pushed out, or jumped</span>
         <h1>Come back on your terms.</h1>
-        <p class="lede">Comeback GOAT is an AI comeback engine for experienced leaders going solo. It reads your email, files and network, finds the money closest to you and does the legwork every morning. You press send.</p>
+        <p class="lede">The average job search now runs 24.8 weeks. Comeback GOAT starts on the fastest path to income on day one: your network, your former employers and money you are already owed. It reads your email, files and contacts, does the legwork every morning and hands you the moves. You press send.</p>
         <div class="cta-row">
           <a class="btn" href="#apply">Apply for the founding cohort</a>
           <span class="seats">5 seats · free · 14 days</span>
@@ -171,6 +195,49 @@ footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;fle
         <div class="reply"><strong>On my terms.</strong>As the consultant first. 90 days, scoped, at my rate.</div>
       </article>
     </div>
+  </section>
+
+  <section id="problem">
+    <span class="eyebrow">The new math of a layoff</span>
+    <h2 style="margin-top:14px">AI took the job. The old playbook went with it.</h2>
+    <div class="facts">
+      <div class="fact"><span class="num">#1</span><p>AI is now the top reason US employers give for job cuts: 120,136 so far this year.</p><span class="src"><a href="https://www.challengergray.com/blog/job-cuts-fall-in-september-hiring-plans-up-3-over-2025-on-weak-early-seasonal-hiring/" target="_blank" rel="noopener">Challenger, Gray &amp; Christmas, through Sept 2026</a></span></div>
+      <div class="fact"><span class="num">24.8</span><p>weeks: the average time an unemployed American has been searching. Up from 24.1 a year ago.</p><span class="src"><a href="https://www.bls.gov/news.release/empsit.t12.htm" target="_blank" rel="noopener">BLS, Sept 2026</a></span></div>
+      <div class="fact"><span class="num">1.9M</span><p>people have been out of work six months or longer. That is 27.1% of everyone looking.</p><span class="src"><a href="https://www.bls.gov/news.release/empsit.htm" target="_blank" rel="noopener">BLS, Sept 2026</a></span></div>
+      <div class="fact"><span class="num">62%</span><p>pay premium on jobs that ask for AI skills. The market is splitting, and it is not waiting.</p><span class="src"><a href="https://aiwagegap.com" target="_blank" rel="noopener">The AI Wage Gap, citing PwC 2026</a></span></div>
+    </div>
+    <p class="lead-wide">That split is the AI Wage Gap. Leaders who rebuild their work around AI move up the K. Everyone else waits in a queue that keeps getting longer, often after a career of being the person companies fought to hire.</p>
+
+    <div class="cost" aria-labelledby="cost-h">
+      <div class="cost-copy">
+        <h3 id="cost-h">What the wait costs you</h3>
+        <p class="muted">Every week without income is a week of pay you do not get back. Move the slider to your last salary.</p>
+        <label for="salary" class="cost-label">Last base salary: <output id="salaryOut" for="salary">$200,000</output></label>
+        <input type="range" id="salary" min="100000" max="500000" step="10000" value="200000">
+      </div>
+      <div class="cost-out">
+        <div><span class="cost-num" id="perWeek">$3,846</span><span class="muted">every week out</span></div>
+        <div><span class="cost-num" id="perSearch">$95,385</span><span class="muted">over an average 24.8-week search</span></div>
+      </div>
+      <p class="cost-note">Illustrative: salary ÷ 52 × BLS average duration (Sept 2026). Not a forecast of your search.</p>
+    </div>
+
+    <h3 class="sub">What it feels like from the inside</h3>
+    <div class="voices">
+      <blockquote>"Everyone else figured out AI. I'm years behind."</blockquote>
+      <blockquote>"What if nobody hires me at this level again?"</blockquote>
+      <blockquote>"I've never built a business. Where do I even start?"</blockquote>
+      <blockquote>"Everyone on LinkedIn just became a consultant."</blockquote>
+      <blockquote>"I can't spend thousands on a coach while severance runs out."</blockquote>
+      <blockquote>"If I try my own thing and it flops, my peers will see it."</blockquote>
+    </div>
+
+    <div class="blockers">
+      <div><h3>No map</h3><p class="muted">Never built a business. Can't tell which of hundreds of AI tools matter. Twenty years of expertise and no idea how to package it for an AI-first market.</p></div>
+      <div><h3>No runway</h3><p class="muted">The mortgage, tuition and health insurance don't pause. There is no time for a 12-month founder experiment and no budget for a coach.</p></div>
+      <div><h3>No proof</h3><p class="muted">The success stories are 25-year-old AI founders, not 52-year-old VPs who reinvented themselves and got paid. Meanwhile AI resume screens read twenty years as "overqualified".</p></div>
+    </div>
+    <p class="turn">Here is what nobody tells you: your fastest money is not on a job board. It is in your sent folder.</p>
   </section>
 
   <section id="why">
@@ -290,6 +357,12 @@ footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;fle
   </footer>
 </div>
 <script>
+(function(){
+  var s=document.getElementById('salary'),o=document.getElementById('salaryOut'),w=document.getElementById('perWeek'),t=document.getElementById('perSearch');
+  var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+  function upd(){var v=+s.value;o.textContent=fmt(v);w.textContent=fmt(v/52);t.textContent=fmt(v/52*24.8);}
+  s.addEventListener('input',upd);upd();
+})();
 (function(){
   var form=document.getElementById('form'),status=document.getElementById('status'),btn=document.getElementById('submit');
   function say(msg,cls){status.textContent=msg;status.className='status '+(cls||'');}
