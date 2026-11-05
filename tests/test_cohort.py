@@ -1,6 +1,7 @@
 """Cohort operator: screening, sprint calendar, health and drafts due. Run: python3 -m unittest discover tests"""
 import importlib.util
 import json
+import re
 import tempfile
 import unittest
 from datetime import date
@@ -22,9 +23,11 @@ class CohortTests(unittest.TestCase):
         self.ops = Path(self.tmp.name) / "ops"
         cohort.main(["init", str(self.ops), "--day1", "2026-11-16"])  # a Monday
         cfg = (self.ops / "cohort.yaml").read_text()
-        cfg = cfg.replace('booking_url: "SET_ME"', 'booking_url: "https://calendly.com/x/30"')
-        cfg = cfg.replace('whatsapp_dm_number: "SET_ME"', 'whatsapp_dm_number: "+1 555 123 4567"')
-        cfg = cfg.replace('whatsapp_group_invite: "SET_ME"', 'whatsapp_group_invite: "https://chat.whatsapp.com/A"')
+        # Override whatever the live cohort.yaml holds, so the test never depends on real links.
+        cfg = re.sub(r'booking_url: "[^"]*"', 'booking_url: "https://calendly.com/x/30"', cfg)
+        cfg = re.sub(r'whatsapp_dm_number: "[^"]*"', 'whatsapp_dm_number: "+1 555 123 4567"', cfg)
+        cfg = re.sub(r'whatsapp_group_invite: "[^"]*"', 'whatsapp_group_invite: "https://chat.whatsapp.com/A"', cfg)
+        cfg = re.sub(r'(kit:\n(?:  #.*\n)*  link: )"[^"]*"', r'\1"SET_ME"', cfg)
         (self.ops / "cohort.yaml").write_text(cfg)
         apps = [{"name": "Dana Levi", "email": "dana@x.com", "linkedin": "https://linkedin.com/in/d",
                  "situation": "Laid off in the last 6 months", "role": "VP People",
