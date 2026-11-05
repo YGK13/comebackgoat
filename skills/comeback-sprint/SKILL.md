@@ -22,7 +22,7 @@ The full operating protocol is `references/protocol.md`. Read all of it before t
 
 ## State
 
-Keep the Sprint Ledger at `ComebackGOAT/sprint.json` (format in the protocol, Appendix A). At the start of every session: read it, work out today's sprint day from `started` and the user's days off, then run that day's section. At the end: update counts, streak and open items, and draft the coach's daily report (protocol 9.8). In a chat-only session, output the ledger block and ask the user to save it to the Project.
+Keep the Sprint Ledger at `ComebackGOAT/sprint.json` (format in the protocol, Appendix A). At the start of every session: read it, work out today's sprint day from `started` and the user's days off, then run that day's section. At the end: update counts, streak and open items, show the Progress Board with the day's coach's note, add today's row to the Google Sheet tracker and draft the coach's daily report (protocol 9.8 and 9.9). Commands the participant uses: "Day [n]", "Today", "Catch up", "Smallest move", "Run my offer call". If anything in the setup looks broken, run comeback-doctor. In a chat-only session, output the ledger block and ask the user to save it to the Project.
 
 ## Never
 

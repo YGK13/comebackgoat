@@ -1,0 +1,38 @@
+# Comeback GOAT cohort settings. One file, filled once per cohort.
+# scripts/build_kit.py writes these values into the participant kit and refuses
+# to build while any value says SET_ME. Nothing secret belongs here: this repo
+# is deployable and may be public.
+
+coach:
+  name: "Yuri Kruman"
+  email: "yuri.kruman@gmail.com"
+  # The 30-minute call participants book twice: kickoff and Day 14 review.
+  booking_url: "SET_ME"            # e.g. https://calendly.com/<you>/connect-with-yuri-30-min
+  # Private questions only. Digits only, with country code, no plus sign.
+  whatsapp_dm_number: "SET_ME"     # e.g. 9725XXXXXXXX
+  # The cohort's WhatsApp group (WhatsApp, group info, Invite via link).
+  whatsapp_group_invite: "SET_ME"  # e.g. https://chat.whatsapp.com/XXXXXXXX
+  # Your own days for cohort work; sprint emails that fall on other days are
+  # drafted the working day before for Gmail Schedule send.
+  working_days: ["Sun", "Mon", "Tue", "Wed", "Thu"]
+  answers_within: "1 working day (Sunday to Thursday)"
+  offline: "Friday sundown to Saturday night and Jewish holidays"
+
+kit:
+  # Google Drive link to dist/comeback-goat-kit.zip, shared with the
+  # participants' emails (or "anyone with the link" if you accept that risk).
+  link: "SET_ME"
+
+payment:
+  full_usd: 997
+  full_link: "https://buy.stripe.com/3cI4gAd6R9FX3mCfbwgQE0U"
+  plan_usd: 549
+  plan_link: "https://buy.stripe.com/9B614oaYJ6tLf5kfbwgQE0V"
+
+cohort:
+  name: "Founding cohort"
+  day1: "SET_ME"                   # YYYY-MM-DD, a Monday works best
+  seats: 5
+  # Sprint days are working days. Default: Monday to Friday for participants.
+  working_days: ["Mon", "Tue", "Wed", "Thu", "Fri"]
+  timezone: "America/New_York"

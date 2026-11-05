@@ -1,10 +1,12 @@
 import { list, get } from '@vercel/blob';
 
-// Owner-only view of founding-cohort applications. Requires ?key=<ADMIN_KEY>.
+// Owner-only view of founding-cohort applications. Send the ADMIN_KEY in an
+// "x-admin-key" header (preferred: keeps it out of URLs and logs) or as ?key=.
 export async function GET(request) {
   const url = new URL(request.url);
   const key = process.env.ADMIN_KEY;
-  if (!key || url.searchParams.get('key') !== key) {
+  const given = request.headers.get('x-admin-key') || url.searchParams.get('key');
+  if (!key || given !== key) {
     return new Response('Not found', { status: 404 });
   }
   const { blobs } = await list({ prefix: 'applications/', limit: 1000 });

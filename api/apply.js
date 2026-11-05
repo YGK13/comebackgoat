@@ -36,5 +36,43 @@ export async function POST(request) {
   } catch (err) {
     console.error('apply: blob write failed; application kept in runtime log', err?.message);
   }
+  await notify(id, record);
   return json({ ok: true });
+}
+
+// Optional: email each application to the coach so the cohort-operator skill
+// finds it in Gmail (subject "Comeback GOAT application: <name>"). Turns on only
+// when RESEND_API_KEY and NOTIFY_EMAIL are set in Vercel. With Resend's shared
+// onboarding sender, NOTIFY_EMAIL must be the email on the Resend account.
+async function notify(id, record) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.NOTIFY_EMAIL;
+  if (!apiKey || !to) return;
+  const text = [
+    `New Comeback GOAT application from ${record.name}.`,
+    '',
+    `Where they are: ${record.situation}`,
+    `Last role: ${record.role || '-'}`,
+    `90-day win: ${record.goal || '-'}`,
+    `LinkedIn: ${record.linkedin || '-'}`,
+    `Email: ${record.email}`,
+    '',
+    'CBG-APPLICATION ' + JSON.stringify({ id, ...record }),
+  ].join('\n');
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        from: process.env.NOTIFY_FROM || 'Comeback GOAT <onboarding@resend.dev>',
+        to: [to],
+        reply_to: record.email,
+        subject: `Comeback GOAT application: ${record.name}`,
+        text,
+      }),
+    });
+    if (!res.ok) console.error('apply: notify failed', res.status);
+  } catch (err) {
+    console.error('apply: notify error', err?.message);
+  }
 }

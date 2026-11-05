@@ -11,6 +11,17 @@ class ProgramTests(unittest.TestCase):
         b = (ROOT / "skills/comeback-sprint/references/protocol.md").read_text(encoding="utf-8")
         self.assertEqual(a, b, "copy program/PARTICIPANT-PROTOCOL.md to skills/comeback-sprint/references/protocol.md")
 
+    def test_operator_copies_match_program(self):
+        for src, dst in (("program/EMAIL-SEQUENCE.md", "skills/cohort-operator/references/email-sequence.md"),
+                         ("program/cohort.yaml", "skills/cohort-operator/references/cohort.yaml")):
+            self.assertEqual((ROOT / src).read_text(encoding="utf-8"), (ROOT / dst).read_text(encoding="utf-8"),
+                             f"copy {src} to {dst}")
+
+    def test_no_em_dashes_in_new_skills(self):
+        for name in ("cohort-operator", "comeback-doctor"):
+            for p in (ROOT / "skills" / name).rglob("*.md"):
+                self.assertNotIn("\u2014", p.read_text(encoding="utf-8"), str(p))
+
     def test_protocol_keeps_draft_only_rule(self):
         t = (ROOT / "program/PARTICIPANT-PROTOCOL.md").read_text(encoding="utf-8")
         self.assertIn("**Draft only.**", t)
