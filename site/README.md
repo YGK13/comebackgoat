@@ -1,7 +1,10 @@
 # comebackgoat.com
 
-Static landing page plus two Vercel Functions:
-- `api/apply.js` stores founding-cohort applications in a **private** Vercel Blob store (`applications/*.json`).
-- `api/applications.js` lists them for the owner when called with `?key=<ADMIN_KEY>`.
+- `site/public/index.html`: the landing page (the only static files served; see `vercel.json`).
+- `api/apply.js`: stores founding-cohort applications in a **private** Vercel Blob store (`applications/*.json`) and writes a backup line to the runtime log.
+- `api/applications.js`: owner-only list of applications with `?key=<ADMIN_KEY>`.
 
-Deploy: create a Vercel project with root directory `site`, framework "Other"; connect a private Blob store to the project (Storage, Create, Blob, access Private); add an `ADMIN_KEY` environment variable (a long random string); add the domains comebackgoat.com and www.comebackgoat.com.
+One-time setup in the Vercel dashboard (project `comebackgoat`):
+1. Storage, Create, Blob, access **Private**, connect to this project (all environments).
+2. Settings, Environment Variables: `ADMIN_KEY` = a long random string.
+3. Settings, Domains: add `comebackgoat.com` and `www.comebackgoat.com`, then set the DNS records Vercel shows at your registrar.

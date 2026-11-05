@@ -23,6 +23,7 @@ export default async function handler(request) {
   const now = new Date();
   const record = { ...clean, consent: true, received_at: now.toISOString(), referrer: request.headers.get('referer') || '' };
   const id = `${now.toISOString().replace(/[:.]/g, '-')}-${crypto.randomUUID().slice(0, 8)}`;
+  console.log('APPLICATION ' + JSON.stringify({ id, ...record })); // backup copy in runtime logs
   try {
     await put(`applications/${id}.json`, JSON.stringify(record, null, 2), {
       access: 'private',
@@ -30,8 +31,7 @@ export default async function handler(request) {
       addRandomSuffix: false,
     });
   } catch (err) {
-    console.error('apply: blob write failed', err?.message);
-    return json({ error: 'Something went wrong on our side. Try again in a minute.' }, 500);
+    console.error('apply: blob write failed; application kept in runtime log', err?.message);
   }
   return json({ ok: true });
 }

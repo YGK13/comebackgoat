@@ -1,0 +1,8 @@
+skills/
+tests/
+examples/
+schemas/
+scripts/
+.github/
+*.md
+!site/**
