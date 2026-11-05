@@ -1,0 +1,21 @@
+{
+  "name": "revenue-engine",
+  "version": "0.1.0",
+  "description": "Find money, grants, paid projects and job offers for a solo consultant, coach or advisor who just left corporate. One onboarding builds a Founder Context Pack from your email, files and the web; five engines then hunt daily and prepare every item to its last click for your yes.",
+  "author": {
+    "name": "Portfolio Leverage Co.",
+    "email": "support@portlev.com",
+    "url": "https://portlev.com"
+  },
+  "homepage": "https://portlev.com",
+  "license": "Proprietary",
+  "keywords": [
+    "consulting",
+    "fractional",
+    "grants",
+    "unclaimed money",
+    "job search",
+    "RFP",
+    "solo business"
+  ]
+}

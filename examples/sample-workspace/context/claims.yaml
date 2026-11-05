@@ -1,0 +1,37 @@
+person:
+  name: "Dana Reyes"
+  public_location: "Chicago, IL"
+contact:
+  email: "dana@reyesops.example"
+  phone: "(312) 555-0142"
+  website: "https://reyesops.example"
+  linkedin: "https://www.linkedin.com/in/example-dana-reyes"
+  booking_link: "https://cal.example/dana/30min"
+entity:
+  legal_name: "Reyes Operations Advisory LLC"
+  trade_name: "Reyes Ops"
+  type: llc
+  state: "IL"
+  formed: "2026-08-14"
+  status: active
+  ein_on_file: true
+claims:
+  - id: coo-18y
+    claim: "18 years in operations, the last 6 as COO of a 400-person logistics company"
+    source: "Dana Reyes Resume 2026.pdf"
+    ok_for: [public, applications]
+  - id: cost-cut
+    claim: "Led a warehouse automation program that cut fulfillment cost per order 22% in 18 months"
+    source: "Board deck Q4 2024.pdf, slide 9; confirmed by user 2026-11-05"
+    ok_for: [public, applications]
+    phrasing_notes: "Name the company only as 'a regional 3PL'"
+  - id: first-clients
+    claim: "3 paying advisory clients since going independent in August 2026"
+    source: "QuickBooks customer list, read 2026-11-05"
+    ok_for: [applications]
+  - id: mba
+    claim: "MBA, University of Illinois"
+    source: "LinkedIn profile PDF"
+    ok_for: [public, applications]
+never_say:
+  - "Midwest Freight Holdings"

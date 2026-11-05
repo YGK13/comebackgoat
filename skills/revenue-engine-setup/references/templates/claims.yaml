@@ -1,0 +1,34 @@
+# THE CANON. Every Revenue Engine draft may use only these facts.
+# Each claim needs a source (file, email subject + date, URL, or "stated by user YYYY-MM-DD").
+# ok_for: public (site, posts, outreach), applications (grants, jobs, proposals), private (never shown to third parties).
+# Never store ID numbers, account numbers, passwords or codes here.
+
+person:
+  name: ""                 # as published
+  public_location: ""      # what applications and outreach should show, e.g. "New York, NY"
+  pronouns: ""             # optional
+
+contact:
+  email: ""
+  phone: ""
+  website: ""
+  linkedin: ""
+  booking_link: ""
+
+entity:                    # optional until the grants lane is on
+  legal_name: ""
+  trade_name: ""
+  type: ""                 # sole_prop | llc | s_corp | c_corp | nonprofit | none
+  state: ""
+  formed: ""               # YYYY-MM-DD
+  status: ""               # active | pending | none
+  ein_on_file: false       # yes/no only, never the number
+
+claims:
+  - id: example-claim
+    claim: "Replace with an exact sentence to reuse"
+    source: "resume-2026.pdf"
+    ok_for: [public, applications]
+    phrasing_notes: ""
+
+never_say: []              # names, employers, numbers, affiliations or topics that must never appear

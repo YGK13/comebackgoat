@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portlev.com/schemas/context-pack-1.0.json",
+  "title": "Founder Context Pack (portable export)",
+  "description": "Exported by revenue-engine-setup/scripts/validate_pack.py --export. Private claims are never exported. Consumed by SMBeastMode and any other tool that needs the user's canon.",
+  "type": "object",
+  "required": ["pack_version", "exported_on", "person", "claims", "constraints", "lanes"],
+  "properties": {
+    "pack_version": { "const": "1.0" },
+    "exported_on": { "type": "string", "format": "date" },
+    "person": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "public_location": { "type": "string" },
+        "pronouns": { "type": "string" }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "website": { "type": "string" },
+        "linkedin": { "type": "string" },
+        "booking_link": { "type": "string" }
+      }
+    },
+    "entity": {
+      "type": "object",
+      "properties": {
+        "legal_name": { "type": "string" },
+        "trade_name": { "type": "string" },
+        "type": { "enum": ["", "sole_prop", "llc", "s_corp", "c_corp", "nonprofit", "none"] },
+        "state": { "type": "string" },
+        "formed": { "type": "string" },
+        "status": { "type": "string" },
+        "ein_on_file": { "type": "boolean" }
+      },
+      "not": { "anyOf": [{ "required": ["ein"] }, { "required": ["ssn"] }, { "required": ["tax_id"] }] }
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "claim", "source", "ok_for"],
+        "properties": {
+          "id": { "type": "string" },
+          "claim": { "type": "string", "minLength": 1 },
+          "source": { "type": "string", "minLength": 1 },
+          "ok_for": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "enum": ["public", "applications"] }
+          },
+          "phrasing_notes": { "type": "string" }
+        }
+      }
+    },
+    "never_say": { "type": "array", "items": { "type": "string" } },
+    "constraints": { "type": "object" },
+    "lanes": {
+      "type": "object",
+      "properties": {
+        "autopilot": {
+          "type": "object",
+          "properties": { "approval": { "const": "draft_only" } }
+        }
+      }
+    },
+    "voice_md": { "type": "string" },
+    "messaging_kit_md": { "type": "string" },
+    "profile_md": { "type": "string" }
+  }
+}

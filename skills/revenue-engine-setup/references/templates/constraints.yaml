@@ -1,0 +1,36 @@
+# Hard filters. Every engine drops anything that breaks one of these. Not preferences.
+
+location:
+  public_base: ""              # e.g. "New York, NY"; what forms and outreach show
+  work_regions_ok: []          # e.g. ["remote-us", "remote-global", "israel"]
+  relocation: false
+  travel: ""                   # e.g. "short trips every few months"
+  in_person_max_days: 0        # longest in-person commitment acceptable for a program
+
+schedule:
+  days_off: []                 # e.g. ["Saturday"]; engines never schedule or promise work then
+  timezone: ""                 # IANA, e.g. "America/New_York"
+  hours_note: ""
+
+languages: []
+
+work_authorization:
+  countries: []                # where they may work without sponsorship, e.g. ["US"]
+  sponsorship_needed: false
+
+money:
+  runway_months: ""            # "under 3" | "3-6" | "6-12" | "12+"
+  monthly_target_usd: 0
+  appetite: []                 # client_work | no_equity | job | equity | loans
+
+job:
+  stance: "no"                 # "no" | "if_great_fit" | "active"
+  floor_usd: 0
+  types: []                    # full_time | contract | fractional | part_time
+  stealth: true                # never public signals (no Open to Work, no posts about searching)
+
+grants:
+  demographic_screens: []      # only what the user volunteered, e.g. ["woman-owned"]
+  max_application_fee_usd: 0
+
+exclusions: []                 # free text rules, e.g. "no OpenAI data projects", "no MLM", "no pay-to-play awards"

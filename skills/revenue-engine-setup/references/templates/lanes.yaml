@@ -1,0 +1,45 @@
+# Which engines run, how much and how they score. Weights in each block must sum to 100.
+
+money_sweep:
+  enabled: true
+  cadence: weekly              # daily | weekly | monthly
+  states_lived_or_worked: []   # e.g. ["NY", "CA"]
+  countries: []                # e.g. ["US"]
+  former_names: []
+  past_employers_with_plans: []
+  left_corporate_on: ""        # YYYY-MM-DD; turns on the corporate exit audit for 24 months
+
+grant_hunter:
+  enabled: true
+  cadence: daily
+  daily_target: 6
+  min_score: 60
+  weights: {fit: 30, value: 25, odds: 20, effort: 15, urgency: 10}
+  focus: []                    # e.g. ["AI for work", "women-owned", "New York small business"]
+  equity_ok: false
+
+project_hunter:
+  enabled: true
+  cadence: daily
+  daily_target: 8
+  min_score: 60
+  weights: {fit: 30, value: 25, warm_path: 20, speed_to_cash: 15, effort: 10}
+  engagement_types: []         # advisory | fractional | project | workshop | speaking | expert_calls | subcontract | rfp
+  day_rate_usd: 0
+  project_minimum_usd: 0
+
+job_insurance:
+  enabled: false
+  cadence: daily
+  daily_cap: 5
+  min_score: 60
+  weights: {fit: 40, level: 20, domain: 15, constraints: 15, comp: 10}
+  titles: []
+  adjacent_titles: []
+  target_companies: []
+
+autopilot:
+  digest_time: "08:00"
+  max_drafts_per_run: 8
+  max_forms_filled_per_run: 5
+  approval: draft_only         # the only supported value: nothing is sent or submitted without the user's yes

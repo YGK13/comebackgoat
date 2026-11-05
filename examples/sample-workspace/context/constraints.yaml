@@ -1,0 +1,27 @@
+location:
+  public_base: "Chicago, IL"
+  work_regions_ok: [remote-us, chicago-onsite]
+  relocation: false
+  travel: "up to 2 days a month"
+  in_person_max_days: 5
+schedule:
+  days_off: [Sunday]
+  timezone: "America/Chicago"
+  hours_note: "no calls before 9am"
+languages: [English, Spanish]
+work_authorization:
+  countries: [US]
+  sponsorship_needed: false
+money:
+  runway_months: "6-12"
+  monthly_target_usd: 18000
+  appetite: [client_work, no_equity, job]
+job:
+  stance: if_great_fit
+  floor_usd: 210000
+  types: [full_time, fractional]
+  stealth: true
+grants:
+  demographic_screens: [woman-owned]
+  max_application_fee_usd: 50
+exclusions: ["no MLM or commission-only roles", "no pay-to-play awards"]
