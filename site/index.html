@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Comeback GOAT</title>
+<meta name="description" content="The AI comeback engine for experienced leaders who were pushed out or jumped. It finds the money closest to you and does the legwork. You press send.">
+<meta property="og:title" content="GOAT, come back.">
+<meta property="og:description" content="Come back on your terms. An AI comeback engine for experienced leaders. Founding cohort: 5 seats, free, 14 days.">
+<meta property="og:url" content="https://comebackgoat.com">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23C62828'/%3E%3Cpath d='M6 25 L14 9 L18 17 L21 12 L26 25 Z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+/* Layout: alpine trail map. A letter from the old employer opens the page; red-white trail blazes mark each stage of the climb back up. */
+:root{
+  --bg:#F2F3EE; --surface:#FFFFFF; --ink:#1B2420; --granite:#56605A; --line:#D3D8CF;
+  --blaze:#C62828; --blaze-ink:#FFFFFF; --lichen:#5F7A2A; --tint:#E7EAE1;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121715; --surface:#1A211E; --ink:#E9ECE6; --granite:#A3ADA6; --line:#2C3631;
+  --blaze:#F0524A; --blaze-ink:#140B0A; --lichen:#A9C46A; --tint:#202925; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121715; --surface:#1A211E; --ink:#E9ECE6; --granite:#A3ADA6; --line:#2C3631;
+  --blaze:#F0524A; --blaze-ink:#140B0A; --lichen:#A9C46A; --tint:#202925; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blaze);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;letter-spacing:.01em;line-height:.95;margin:0;text-wrap:balance}
+h1{font-size:clamp(3rem,8vw,5.6rem)}
+h2{font-size:clamp(2.1rem,5vw,3.2rem)}
+h3{font-size:1.5rem;font-weight:700}
+p{margin:0;max-width:62ch}
+.eyebrow{font:500 .78rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--granite)}
+.blaze{display:inline-flex;width:34px;height:12px;flex:none}
+.blaze i{flex:1;background:var(--blaze)}
+.blaze i:nth-child(2){background:var(--surface);border-block:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font:600 1rem/1 var(--body);
+  background:var(--blaze);color:var(--blaze-ink);border:0;border-radius:4px;padding:1em 1.4em;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.muted{color:var(--granite)}
+header.top{display:flex;justify-content:space-between;align-items:center;padding-block:20px}
+.logo{font:900 1.5rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:28px;height:28px}
+section{padding-block:72px;border-top:1px solid var(--line)}
+section.hero{border-top:0;padding-block:32px 72px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero-copy .lede{font-size:1.15rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.seats{font:500 .85rem/1.3 var(--mono);color:var(--granite)}
+/* the letter */
+.mail{background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:0 18px 40px -24px rgba(20,30,25,.35);overflow:hidden;min-width:0}
+.mail-head{font:400 .82rem/1.7 var(--mono);padding:16px 20px;border-bottom:1px solid var(--line);background:var(--tint)}
+.mail-head b{font-weight:500;display:inline-block;width:64px;color:var(--granite)}
+.mail-subject{font:900 clamp(2.4rem,6vw,3.6rem)/.95 var(--display);text-transform:uppercase;padding:22px 20px 8px}
+.mail-body{padding:0 20px 20px;display:flex;flex-direction:column;gap:12px;color:var(--ink)}
+.reply{margin:0 20px 20px;border-left:4px solid var(--blaze);background:var(--tint);padding:14px 16px;font-size:.95rem}
+.reply strong{font-family:var(--display);text-transform:uppercase;font-size:1.35rem;letter-spacing:.02em;display:block;line-height:1}
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+.stat{display:flex;flex-direction:column;gap:10px;min-width:0}
+.stat .num{font:900 clamp(3.4rem,8vw,4.8rem)/.9 var(--display);color:var(--blaze);font-variant-numeric:tabular-nums}
+.stat .src{font:400 .78rem/1.4 var(--mono);color:var(--granite)}
+.stat .src a{text-decoration-color:var(--line)}
+.kicker{margin-top:32px;font-size:1.1rem;font-weight:600}
+/* engines */
+.engines{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:36px;border-top:1px solid var(--line)}
+.engine{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;padding:20px 0;border-bottom:1px solid var(--line);min-width:0}
+.engine:nth-child(odd){padding-right:28px}
+.engine:nth-child(even){padding-left:28px;border-left:1px solid var(--line)}
+.engine .blaze{margin-top:7px}
+.engine h3{grid-column:2}
+.engine p{grid-column:2;color:var(--granite);font-size:.98rem}
+.tag{font:500 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--lichen);margin-left:8px;vertical-align:middle}
+/* plan mock */
+.plan-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start;margin-top:12px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:8px;font:400 .86rem/1.55 var(--mono);overflow:hidden;min-width:0}
+.plan .bar{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;background:var(--tint);border-bottom:1px solid var(--line);font-weight:500}
+.plan .blk{padding:14px 16px;border-bottom:1px solid var(--line)}
+.plan .blk:last-child{border-bottom:0}
+.plan .lbl{color:var(--granite);letter-spacing:.08em;font-size:.74rem;text-transform:uppercase;margin-bottom:6px}
+.plan ol,.plan ul{margin:0;padding-left:1.2em}
+.r{display:inline-block;min-width:2.4em;font-weight:500;color:var(--blaze)}
+.done{color:var(--lichen)}
+.example{font:500 .7rem/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--line);border-radius:3px;padding:4px 6px;color:var(--granite)}
+/* timeline */
+.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.steps li{display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--ink);padding-top:14px;min-width:0}
+.steps li:last-child{border-top-color:var(--blaze)}
+.day{font:500 .8rem/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--granite)}
+/* guardrails */
+.rails{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+.rails div{display:flex;flex-direction:column;gap:8px;min-width:0}
+/* founder */
+.founder{display:grid;grid-template-columns:1fr 1.3fr;gap:48px;align-items:start}
+.quote{font:900 clamp(2rem,4.6vw,3rem)/1 var(--display);text-transform:uppercase}
+.creds{list-style:none;padding:0;margin:18px 0 0;display:flex;flex-direction:column;gap:8px}
+.creds li{padding-left:20px;position:relative}
+.creds li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:4px;background:var(--blaze)}
+/* form */
+.apply{display:grid;grid-template-columns:1fr 1.25fr;gap:48px;align-items:start}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px;min-width:0}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-weight:600;font-size:.92rem}
+input,select,textarea{font:400 1rem/1.4 var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.7em .8em;width:100%}
+textarea{min-height:86px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;grid-column:1/-1}
+.check input{width:auto;margin-top:.3em}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.status{grid-column:1/-1;font-size:.95rem;min-height:1.4em}
+.status.ok{color:var(--lichen);font-weight:600}
+.status.err{color:var(--blaze);font-weight:600}
+footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:.88rem;color:var(--granite)}
+@media (max-width:860px){
+  .hero-grid,.plan-grid,.founder,.apply{grid-template-columns:1fr;gap:32px}
+  .stats,.rails{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .engines{grid-template-columns:1fr}
+  .engine:nth-child(odd),.engine:nth-child(even){padding-left:0;padding-right:0;border-left:0}
+}
+@media (max-width:520px){ form{grid-template-columns:1fr} .steps{grid-template-columns:1fr} section{padding-block:56px} }
+@media (prefers-reduced-motion:no-preference){
+  .mail{animation:arrive .7s cubic-bezier(.2,.8,.2,1) both .15s}
+  @keyframes arrive{from{transform:translateY(14px) rotate(-1deg);opacity:.001}to{transform:none;opacity:1}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#top" aria-label="Comeback GOAT home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="var(--blaze)"/><path d="M6 25 L14 9 L18 17 L21 12 L26 25 Z" fill="var(--surface)"/></svg>
+      Comeback GOAT
+    </a>
+    <a class="btn" href="#apply">Apply</a>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">For leaders who were pushed out, or jumped</span>
+        <h1>Come back on your terms.</h1>
+        <p class="lede">Comeback GOAT is an AI comeback engine for experienced leaders going solo. It reads your email, files and network, finds the money closest to you and does the legwork every morning. You press send.</p>
+        <div class="cta-row">
+          <a class="btn" href="#apply">Apply for the founding cohort</a>
+          <span class="seats">5 seats · free · 14 days</span>
+        </div>
+      </div>
+      <article class="mail" aria-label="Example email">
+        <div class="mail-head">
+          <div><b>From</b>Your former employer</div>
+          <div><b>To</b>You</div>
+          <div><b>Re</b>The AI rollout</div>
+        </div>
+        <div class="mail-subject">GOAT, come back.</div>
+        <div class="mail-body">
+          <p>The rollout stalled. Nobody here has done this before, and you have. Any chance you'd come back?</p>
+        </div>
+        <div class="reply"><strong>On my terms.</strong>As the consultant first. 90 days, scoped, at my rate.</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="why">
+    <span class="eyebrow">Where the first money really comes from</span>
+    <h2 style="margin-top:14px">The people who already know your work.</h2>
+    <div class="stats">
+      <div class="stat"><span class="num">84%</span><p>of fractional leaders found their first client in their own network.</p><span class="src"><a href="https://www.fractionaljobs.io/blog/lead-gen-how-to-get-your-first-fractional-clients" target="_blank" rel="noopener">Fractional Jobs, 2025</a></span></div>
+      <div class="stat"><span class="num">52%</span><p>of consultants landed their first client through a current or former employer.</p><span class="src"><a href="https://www.consultingsuccess.com/how-to-become-a-consultant" target="_blank" rel="noopener">Consulting Success survey</a></span></div>
+      <div class="stat"><span class="num">35%</span><p>of new hires in March 2025 were boomerangs: people returning to a former employer.</p><span class="src"><a href="https://www.adpresearch.com/boomerang-hiring-makes-a-comeback/" target="_blank" rel="noopener">ADP Research, May 2025</a></span></div>
+    </div>
+    <p class="kicker">Job boards and cold outreach are where most people start. They are where the least money is.</p>
+  </section>
+
+  <section id="engines">
+    <span class="eyebrow">What runs for you</span>
+    <h2 style="margin-top:14px">Eight engines. One rule: nothing goes out without your yes.</h2>
+    <div class="engines">
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Boomerang</h3><p>Turns former employers into your warmest market. Respects your separation agreement, finds your best insider and drafts a consultant-first offer.</p></div>
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Warm network</h3><p>Scores every contact from your LinkedIn export, address book and email, then finds the warm path to each opportunity.</p></div>
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Paid projects</h3><p>Inbound requests, fractional roles, RFPs, expert calls, speaking slots. Verified live, scored, reply drafted in your voice.</p></div>
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Money you're owed</h3><p>Unpaid invoices, payouts, unclaimed property and the severance, equity and benefits deadlines most people miss.</p></div>
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Bridge roles</h3><p>A quiet, capped search for contract, interim and full-time roles as insurance. Forms filled to the last click.</p></div>
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Grants <span class="tag">opt-in</span></h3><p>No-equity money you actually qualify for, verified open and scam-filtered.</p></div>
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Daily plan</h3><p>Ranks every move by distance to cash. Claude does its part first; you get a short list of presses and decisions.</p></div>
+      <div class="engine"><span class="blaze" aria-hidden="true"><i></i><i></i><i></i></span><h3>Calibration</h3><p>Reads before it asks. Builds your facts, voice, credentials and links once, so no form or reply asks you twice.</p></div>
+    </div>
+  </section>
+
+  <section id="day">
+    <div class="plan-grid">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span class="eyebrow">Your morning</span>
+        <h2>Fifteen minutes, closest to cash first.</h2>
+        <p>Every action carries a rung on the revenue ladder, from R1 (money already owed) to R8 (admin). Claude drafts, researches and fills forms overnight. You do the presses and the decisions, in order. Want more structure? Focus mode gives you three items, one at a time.</p>
+      </div>
+      <div class="plan" aria-label="Example daily plan">
+        <div class="bar"><span>Thu, Nov 5</span><span class="example">Example</span></div>
+        <div class="blk"><div class="lbl">Claude did</div>
+          <ul><li class="done">2 follow-ups drafted in the thread</li><li class="done">1 application filled to Submit</li><li class="done">Signals checked at 3 former employers</li></ul></div>
+        <div class="blk"><div class="lbl">You, about 11 min</div>
+          <ol><li><span class="r">R1</span>Invoice 1043 reminder: press Send. 3 min</li><li><span class="r">R2</span>Beta workshop: pick a fee range. 5 min</li><li><span class="r">R3</span>Reply to your former COO: press Send. 3 min</li></ol></div>
+        <div class="blk muted">Streak: 9 money moves in a row</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <span class="eyebrow">The 14-day comeback</span>
+    <h2 style="margin-top:14px">From calibration to a paid conversation.</h2>
+    <ol class="steps">
+      <li><span class="day">Day 1</span><h3>Calibrate</h3><p>It reads your resume, LinkedIn, sent mail and files, then asks only what it cannot find.</p></li>
+      <li><span class="day">Days 2-3</span><h3>Map</h3><p>Warm paths, former employers you may approach, money you are owed, live leads.</p></li>
+      <li><span class="day">Days 4-13</span><h3>Move</h3><p>A daily plan. Claude does its part, you spend about 15 minutes pressing send.</p></li>
+      <li><span class="day">Day 14</span><h3>Target</h3><p>A first paid conversation booked and an offer sent. Not a promise of salary: a real start.</p></li>
+    </ol>
+  </section>
+
+  <section id="trust">
+    <span class="eyebrow">Guardrails</span>
+    <h2 style="margin-top:14px">Your name, your call.</h2>
+    <div class="rails">
+      <div><h3>Draft only</h3><p class="muted">Nothing is sent, submitted, signed, posted or paid without your yes. Ever.</p></div>
+      <div><h3>Your data stays yours</h3><p class="muted">Everything lives in your own Claude workspace. It never stores passwords, ID numbers or account numbers.</p></div>
+      <div><h3>Agreements first</h3><p class="muted">Former employers stay off-limits until any non-solicit or non-compete date has passed.</p></div>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="founder">
+      <p class="quote">"I have walked both parts of the K-curve, more than once."</p>
+      <div>
+        <span class="eyebrow">Built by Yuri Kruman</span>
+        <ul class="creds">
+          <li>3x CHRO and CLO across Fortune 500, high-growth startups and SMBs</li>
+          <li>2,300+ executives coached through transitions</li>
+          <li>Author of "Managing Your Emotions After Being Laid Off" (Harvard Business Publishing, 2023)</li>
+          <li>50+ AI apps, agents and workflows built in Claude</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="apply">
+    <div class="apply">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span class="eyebrow">Founding cohort</span>
+        <h2>Five seats. Free. Fourteen days.</h2>
+        <p>I will run your comeback engine with you, end to end, in exchange for honest feedback and, if it works, your story. You need a Claude Pro or Max plan and a recent LinkedIn data export.</p>
+        <p class="muted">I read every application and reply within two business days (Sunday to Thursday).</p>
+      </div>
+      <form id="form" novalidate>
+        <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required maxlength="120"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+        <div class="field full"><label for="linkedin">LinkedIn profile URL</label><input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/..." maxlength="300"></div>
+        <div class="field"><label for="situation">Where you are</label>
+          <select id="situation" name="situation" required>
+            <option value="">Choose one</option>
+            <option>Laid off in the last 6 months</option>
+            <option>Laid off 6 to 18 months ago</option>
+            <option>Left by choice</option>
+            <option>Still employed, planning my exit</option>
+            <option>Already solo, need pipeline</option>
+          </select></div>
+        <div class="field"><label for="role">Last role</label><input id="role" name="role" placeholder="e.g. VP People, CFO, Head of Product" maxlength="120"></div>
+        <div class="field full"><label for="goal">What would a win look like in 90 days?</label><textarea id="goal" name="goal" maxlength="1200" placeholder="First consulting client, a fractional role, a boomerang return, a bridge job..."></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+        <label class="check" for="consent"><input id="consent" name="consent" type="checkbox" required><span>Contact me about the founding cohort. I can ask to have my application deleted at any time.</span></label>
+        <button class="btn" type="submit" id="submit">Apply for a seat</button>
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <span>Comeback GOAT is a Portfolio Leverage Co. product. Coming next: <em>Comeback Kid</em>, the book.</span>
+    <span>Not legal, tax or financial advice.</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var form=document.getElementById('form'),status=document.getElementById('status'),btn=document.getElementById('submit');
+  function say(msg,cls){status.textContent=msg;status.className='status '+(cls||'');}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d={};new FormData(form).forEach(function(v,k){d[k]=typeof v==='string'?v.trim():v;});
+    if(!d.name||!d.email||!d.situation){say('Add your name, email and where you are, then apply again.','err');return;}
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){say('That email address looks incomplete.','err');return;}
+    if(!form.consent.checked){say('Tick the box so I can contact you about the cohort.','err');return;}
+    btn.disabled=true;say('Sending your application...');
+    fetch('/api/apply',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+      .then(function(r){return r.json().catch(function(){return{};}).then(function(j){return{ok:r.ok,j:j};});})
+      .then(function(res){
+        if(res.ok){form.reset();say('Application received. You will hear from me within two business days.','ok');}
+        else if(res.j.error){say(res.j.error,'err');}
+        else{say('Applications open on comebackgoat.com shortly. Until then, message me on LinkedIn: linkedin.com/in/yurikruman','err');}
+      })
+      .catch(function(){say('Applications open on comebackgoat.com shortly. Until then, message me on LinkedIn: linkedin.com/in/yurikruman','err');})
+      .finally(function(){btn.disabled=false;});
+  });
+})();
+</script>
+</body>
+</html>
