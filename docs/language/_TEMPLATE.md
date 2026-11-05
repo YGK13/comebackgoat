@@ -31,7 +31,7 @@ Last reviewed: YYYY-MM-DD. Next review due: YYYY-MM-DD (quarterly at the latest,
 
 ## Channel in the line (L6)
 - Distribution channel the words imply:
-- Why this channel works now, and the date checked:
+- Why this channel works now (date checked):
 
 ## About them, not us (L7)
 - Lines that talk about us and their rewrite:
