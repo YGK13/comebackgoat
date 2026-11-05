@@ -74,6 +74,17 @@ section.hero{border-top:0;padding-block:32px 72px}
 .stat .src{font:400 .78rem/1.4 var(--mono);color:var(--granite)}
 .stat .src a{text-decoration-color:var(--line)}
 .kicker{margin-top:32px;font-size:1.1rem;font-weight:600}
+/* receipts */
+.receipts-head{margin-top:48px;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px}
+.receipts{display:grid;grid-template-columns:1fr;gap:24px;margin-top:18px}
+.receipt{margin:0;background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--blaze);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.receipt a{display:block;border-radius:4px;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:zoom-in}
+.receipt img{display:block;width:100%;height:auto}
+.receipt.phone{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:20px 28px;align-items:center}
+.receipt.phone figcaption{max-width:46ch}
+.receipt figcaption{display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.receipt figcaption b{font:900 2rem/1 var(--display);color:var(--blaze);font-variant-numeric:tabular-nums}
+.receipt figcaption .src{font:400 .78rem/1.4 var(--mono);color:var(--granite)}
 /* problem */
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px}
 .fact{display:flex;flex-direction:column;gap:10px;min-width:0;border-top:4px solid var(--ink);padding-top:14px}
@@ -155,6 +166,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;fle
   .engines{grid-template-columns:1fr}
   .engine:nth-child(odd),.engine:nth-child(even){padding-left:0;padding-right:0;border-left:0}
 }
+@media (max-width:640px){ .receipt.phone{grid-template-columns:1fr} .receipt.phone a{max-width:300px;margin-inline:auto} }
 @media (max-width:520px){ .facts,.voices{grid-template-columns:1fr} form{grid-template-columns:1fr} .steps{grid-template-columns:1fr} section{padding-block:56px} }
 @media (prefers-reduced-motion:no-preference){
   .mail{animation:arrive .7s cubic-bezier(.2,.8,.2,1) both .15s}
@@ -259,7 +271,21 @@ footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;fle
     <div class="stats">
       <div class="stat"><span class="num">$0</span><p>so far from about 470 job applications. Interviews, yes. Cash, no.</p></div>
       <div class="stat"><span class="num">$9,900</span><p>from three people who already knew my work, with $10,400 more invoiced.</p></div>
-      <div class="stat"><span class="num">$18K</span><p>in money I'd forgotten I had, found by Claude: a dormant brokerage account and old cash.</p></div>
+      <div class="stat"><span class="num">$18K</span><p>in money I'd forgotten I had, found by Claude: a dormant retirement account and old cash.</p></div>
+    </div>
+    <div class="receipts-head">
+      <h3>The receipts</h3>
+      <p class="muted" style="font-size:.9rem">Real screenshots. Names and account numbers blacked out. Tap to enlarge.</p>
+    </div>
+    <div class="receipts">
+      <figure class="receipt">
+        <a href="/proof/vanguard-ira-redacted.webp" target="_blank" rel="noopener"><img src="/proof/vanguard-ira-redacted.webp" width="1725" height="932" loading="lazy" alt="Vanguard balances page showing a Traditional IRA brokerage account worth $15,581.94 as of November 4, 2026, with the owner's name and account number blacked out"></a>
+        <figcaption><b>$15,581.94</b><span>A retirement account I'd stopped checking, flagged for handover to the state as unclaimed property. Claude found the warning in my inbox.</span><span class="src">Vanguard, Traditional IRA. Balance on Nov 4, 2026.</span></figcaption>
+      </figure>
+      <figure class="receipt phone">
+        <a href="/proof/client-deposit-redacted.webp" target="_blank" rel="noopener"><img src="/proof/client-deposit-redacted.webp" width="1170" height="2010" loading="lazy" alt="Bank app transfer detail: 4,425.00 shekels received July 26, 2026, transfer reason Authority Stack, with sender name, branch and account number blacked out"></a>
+        <figcaption><b>₪4,425</b><span>Deposit from a client who already knew my work. One of the three relationships.</span><span class="src">Bank transfer, Jul 26, 2026. About $1,402 at the Bank of Israel rate of 3.157 (Nov 4, 2026).</span></figcaption>
+      </figure>
     </div>
     <p class="kicker">Then I ran the finished system on my own inbox: seven money moves, 22 minutes, every one already drafted. The only thing missing was me pressing Send. That's why the program has a daily minimum and a coach.</p>
     <p class="muted" style="font-size:.85rem;margin-top:12px">Jun 25 to Nov 5, 2026. Client names withheld. One person's results, not a typical result or a promise.</p>
