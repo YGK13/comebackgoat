@@ -1,6 +1,6 @@
 # Revenue Engine
 
-Six Claude engines that find money for a solo consultant, coach, advisor or fractional executive in their first year out of corporate, plus one onboarding that makes them accurate.
+Seven Claude engines that find money for a solo consultant, coach, advisor or fractional executive in their first year out of corporate, plus one onboarding that makes them accurate.
 
 | Skill | What it does | First-run time |
 |---|---|---|
@@ -10,6 +10,7 @@ Six Claude engines that find money for a solo consultant, coach, advisor or frac
 | **project-hunter** | Paid work: inbound requests, warm-network reactivation, public "looking for" posts, fractional roles, RFPs, expert calls, workshops, speaking. Drafts every reply in your voice. | 15 min per run |
 | **job-insurance** | A quiet, capped, verified job search in the background. Tailored resume and filled form for each role; you press Submit. | 20 min per run |
 | **network-engine** | Maps your network from your own LinkedIn export, contacts and email, scores warmth, finds the warm path for every job, project and grant, and (opt-in) spots recruiting, partner-referral and scouting income. Drafts only. | 15 min after your LinkedIn export arrives |
+| **daily-plan** | Ranks everything by distance to revenue (R1 cash to R8 admin), does Claude's part right away, and hands you only presses, decisions and calls, in order, with minutes. Paste or forward any brief or to-do list and it does the same. Opt-in focus mode for extra structure. Learns weekly from what actually paid. | 2 min |
 | **revenue-autopilot** | Schedules the engines and sends one short Revenue Brief a day. Reply "send P-2, submit G-5". | 5 min |
 
 **The rule that never changes:** the engines prepare; you press Send or Submit. Nothing is sent, submitted, signed, paid or posted without your yes.
@@ -29,7 +30,8 @@ Everything lives in a `RevenueEngine/` folder you own, inside your own Claude ac
 ## For developers
 
 - `skills/revenue-engine-setup/scripts/validate_pack.py <workspace> [--export pack.json]` validates a pack and exports the portable JSON (`schemas/context-pack.schema.json`) that SMBeastMode imports.
-- `python3 scripts/validate_skills.py` checks every SKILL.md; `python3 -m unittest discover tests` runs the validator tests.
+- `python3 scripts/validate_skills.py` checks every SKILL.md; `python3 -m unittest discover tests` runs the validator, network and planner tests.
+- `skills/daily-plan/scripts/plan_today.py plan <workspace> [--focus]` prints the day's plan; `learn <workspace>` recalibrates win rates.
 - `examples/sample-workspace/` is a complete fictional pack.
 
 Not legal, tax, financial or employment advice. Results vary; amounts shown come only from your own documents and the funders' own pages.

@@ -44,6 +44,14 @@ network:
   max_drafts_per_day: 5        # reconnection and intro drafts across all lanes; maximum 5
   connector_income: false      # recruiting referrals, partner referrals, venture scouting (opt-in)
 
+today:
+  enabled: true
+  focus_mode: false            # extra structure: 3 items, a 10-minute starter first, new items parked, carryovers decided
+  human_minutes_per_day: 45    # your time budget for presses, decisions and calls
+  max_items: 7                 # focus mode forces 3
+  default_deal_usd: 0          # used only to rank items with no stated amount; 0 = project minimum or 3 day rates
+  follow_up_days: 5            # Claude drafts a follow-up when a sent item gets no reply for this many days
+
 autopilot:
   digest_time: "08:00"
   max_drafts_per_run: 8

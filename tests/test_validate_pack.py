@@ -119,6 +119,30 @@ class ValidatorTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn("template example", out)
 
+    def test_logistics_secret_key_rejected(self):
+        self.append("logistics.yaml", "\nstripe_api_key: \"sk_live_x\"\n")
+        code, out = run(self.ws)
+        self.assertEqual(code, 1)
+        self.assertIn("stripe_api_key", out)
+
+    def test_logistics_link_must_be_https(self):
+        self.replace("logistics.yaml", "https://cal.com/dana-reyes/30min", "cal.com/dana-reyes/30min")
+        code, out = run(self.ws)
+        self.assertEqual(code, 1)
+        self.assertIn("links.booking", out)
+
+    def test_today_max_items_bounded(self):
+        self.replace("lanes.yaml", "max_items: 7", "max_items: 40")
+        code, out = run(self.ws)
+        self.assertEqual(code, 1)
+        self.assertIn("today.max_items", out)
+
+    def test_export_includes_logistics(self):
+        out_file = self.tmp / "pack.json"
+        code, out = run(self.ws, "--export", str(out_file))
+        self.assertEqual(code, 0, out)
+        self.assertEqual(json.loads(out_file.read_text())["logistics"]["systems"]["scheduler"], "cal_com")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -35,6 +35,22 @@ Search names and contents for: `resume`, `CV`, `bio`, `LinkedIn`, `Profile.pdf`,
 
 QuickBooks, Stripe, Mercury, PayPal: customer names, invoice totals and dates, open receivables. These feed proof ("12 paying clients since March") only when the user approves the number for public use.
 
+## 5. Logistics and systems (fills `context/logistics.yaml`)
+
+Detect what the user really uses from the tools' own emails; never ask what the inbox already shows.
+
+| Goal | Query | Extract |
+|---|---|---|
+| Booking link | `in:sent (calendly.com OR cal.com OR savvycal.com OR "calendar.app.google" OR "meetings.hubspot.com") newer_than:180d` | the link they actually paste; intro vs long call |
+| Scheduler | `from:(calendly.com OR cal.com OR savvycal.com) newer_than:1y` | tool name |
+| Invoicing and payment | `from:(stripe.com OR quickbooks OR intuit OR freshbooks OR waveapps OR xero OR honeybook OR dubsado OR paypal) (invoice OR payout OR payment) newer_than:1y` | tool name; payment link if they send one; never account numbers |
+| E-sign | `from:(docusign OR hellosign OR dropboxsign OR pandadoc OR adobesign OR echosign) newer_than:2y` | tool name |
+| Proposals and CRM | `from:(pandadoc OR proposify OR hubspot OR pipedrive) newer_than:1y` | tool names |
+| Resumes and bios | files named resume, CV, bio, one-pager, headshot | path and date of the newest of each |
+| Credentials | files named certificate, diploma, license; LinkedIn Licenses and certifications | name, issuer, year, public verify link; never an ID number |
+
+If a tool appears in both a notification and the signature, prefer the signature link. If two tools compete (two schedulers), ask once which is current.
+
 ## Done when
 
-`evidence.md` has at least: current title and offer, 3 proof points with sources, 1 voice sample, contact facts, location facts and either a resume or a LinkedIn profile. If any is missing, it becomes a question in Step 4.
+`evidence.md` has at least: current title and offer, 3 proof points with sources, 1 voice sample, contact facts, location facts and either a resume or a LinkedIn profile. If any is missing, it becomes a question in Step 4. `logistics.yaml` should have a booking link and the email, calendar and files systems; ask only for what is still empty.

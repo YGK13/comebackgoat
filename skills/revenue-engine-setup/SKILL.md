@@ -1,6 +1,6 @@
 ---
 name: revenue-engine-setup
-description: First-run onboarding for the Revenue Engine. Builds the user's Founder Context Pack (who they are, what they sell, what is true and provable, how they sound, their hard constraints) by reading their email, files and public web presence first and asking only the few questions those sources cannot answer. Every other Revenue Engine skill (money-sweep, grant-hunter, project-hunter, job-insurance, revenue-autopilot) reads this pack. Use when the user says "set up my revenue engine", "onboard me", "build my profile", "calibrate", "start here", or when another Revenue Engine skill finds no context pack.
+description: First-run onboarding for the Revenue Engine. Builds the user's Founder Context Pack (who they are, what they sell, what is true and provable, how they sound, their hard constraints) by reading their email, files and public web presence first and asking only the few questions those sources cannot answer. Every other Revenue Engine skill (money-sweep, grant-hunter, project-hunter, job-insurance, network-engine, daily-plan, revenue-autopilot) reads this pack. Use when the user says "set up my revenue engine", "onboard me", "build my profile", "calibrate", "start here", or when another Revenue Engine skill finds no context pack.
 ---
 
 # Revenue Engine Setup: the Founder Context Pack
@@ -39,7 +39,8 @@ Then tell the user in one short list what is connected and which ONE missing con
 Follow `references/harvest-map.md`. In order of value:
 1. **Email (sent mail first: it is their real voice and their real work).** Signatures (titles, phone, site), clients and counterparties, invoices and SOWs sent, proposals, testimonials received, speaking or podcast invitations, newsletters they subscribe to (opportunity sources), prior grant or job applications and their outcomes.
 2. **Files.** Resumes and CVs (every version), LinkedIn profile PDF, LinkedIn `Connections.csv`, bios, decks, proposals, case studies, testimonials, published articles, certificates, entity documents (formation date, state, EIN existence only, never the number).
-3. **Web.** Their website, public LinkedIn and author pages, podcast and press appearances, the state business registry entry for their entity.
+3. **Logistics and systems** (`references/harvest-map.md` section 5): booking, payment and site links from their signature; which scheduler, invoicing, e-sign, proposal and CRM tools they actually use, detected from the tools' own notification emails; the newest resume and bio files; professional credentials. These fill `context/logistics.yaml` so no later reply or form asks again.
+4. **Web.** Their website, public LinkedIn and author pages, podcast and press appearances, the state business registry entry for their entity.
 Write every extracted fact to `context/evidence.md` as `fact | source | date seen`. Stop each source once new facts stop appearing.
 
 ## Step 3: Show the draft, fix it in one pass
@@ -64,16 +65,17 @@ Run `references/alignment-check.md`: compare resume vs LinkedIn vs website vs em
 - `context/voice.md`: 5 to 8 rules derived from their sent mail plus 2 short real samples (their words, not yours), banned phrases.
 - `context/messaging-kit.md`: one-liner, 50/100/250-word bios, three proof stories, the answer to "why you, why now", rate card language. Built only from `claims.yaml`.
 - `context/constraints.yaml`: hard filters every engine applies.
-- `context/lanes.yaml`: which engines are on, their targets, daily caps and scoring weights (defaults in the template).
+- `context/lanes.yaml`: which engines are on, their targets, daily caps and scoring weights (defaults in the template), plus the `today` block (daily minutes budget, focus mode).
+- `context/logistics.yaml`: the fact, credential and logistics bank (links, systems of record, file locations, credentials, standard application answers, meeting windows, signature). Show it as one short table and ask "anything wrong?" once. It never holds passwords, keys or ID numbers.
 Run `python3 scripts/validate_pack.py RevenueEngine` (this skill's `scripts/` folder) when Python is available; fix every error it reports.
 
 ## Step 6: First quick win before setup ends
 
 Ask which to run now (default: the network-engine warm-path map if a LinkedIn export or contacts file exists, otherwise a money-sweep quick pass). Promise only what the evidence supports: the goal is a first paid conversation booked and an offer sent within 14 days, never a replaced salary. The goal is one real finding in the first session: a forgotten balance, an unpaid invoice, an open grant they qualify for or one verified project lead. Hand off to that skill.
 
-## Step 7: Offer autopilot
+## Step 7: Offer autopilot and the daily plan
 
-Offer `revenue-autopilot` to schedule the engines (draft-only, with a daily digest). Explain the rule in one line: "They prepare; you press Send or Submit."
+Offer `revenue-autopilot` to schedule the engines (draft-only, with a daily digest) and `daily-plan`, which does Claude's part of each day before the brief arrives. Explain the rule in one line: "They prepare; you press Send or Submit." Ask one question: "Do you want extra structure: fewer items, one at a time, with Claude keeping you on track?" A yes sets `today.focus_mode: true`; never ask why.
 
 ## Re-running
 

@@ -24,7 +24,7 @@ The engines are only valuable if they run when the user is busy. Autopilot sched
 
 ## The Revenue Brief (daily)
 
-Read every tracker; output (`references/brief-format.md`):
+The daily-plan run executes first, so the brief reports what Claude already did and lists only what needs the user, ordered by distance to revenue (R1 cash first). Read every tracker and `runs/<date>-today.json`; output (`references/brief-format.md`):
 1. **Needs you today**: items with status `needs_you` or `prepared`, highest value and nearest deadline first, each with its one action.
 2. **Deadlines inside 7 days.**
 3. **Since yesterday**: replies, interviews, money confirmed, wins.

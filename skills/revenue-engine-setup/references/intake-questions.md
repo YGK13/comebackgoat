@@ -31,6 +31,12 @@ Ask only what the harvest did not answer with a source. Group into at most 3 rou
 **Money sweep**
 - Every US state (and country) lived or worked in, with rough years; former names; past employers with retirement plans; businesses closed or dissolved.
 
+**Logistics (only what the harvest left empty)**
+- The booking link clients should get, and the one for a short intro call if different.
+- How they get paid (payment link or invoicing tool), and which e-sign and proposal tools they use.
+- Meeting windows and response-time promise.
+- Daily time budget for the user's own part (default 45 minutes) and whether they want extra structure (focus mode).
+
 ## Style of asking
 
 - One sentence of why for any sensitive question.

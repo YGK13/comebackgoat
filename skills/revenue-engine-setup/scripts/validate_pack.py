@@ -13,6 +13,8 @@ Checks:
   - no sensitive identifiers anywhere in context/ (SSN pattern, payment card numbers that pass Luhn,
     IBAN-like strings, "password:" lines)
   - never_say terms do not appear in profile.md, messaging-kit.md or claims
+  - logistics.yaml (optional): links are https, systems use known values, no secret-bearing keys
+  - lanes.yaml today block (optional): sane focus mode and daily limits
 
 Exit code 0 when clean, 1 when any error is found. Warnings never fail the run.
 """
@@ -40,6 +42,17 @@ JOB_TYPES = {"full_time", "contract", "fractional", "part_time"}
 CADENCE = {"daily", "weekly", "monthly", "quarterly"}
 ENGAGEMENTS = {"advisory", "fractional", "project", "workshop", "speaking", "expert_calls", "subcontract", "rfp"}
 LANES = ["money_sweep", "grant_hunter", "project_hunter", "job_insurance"]
+SYSTEMS = {
+    "email": {"gmail", "outlook", "other"},
+    "calendar": {"google", "outlook", "apple", "other"},
+    "scheduler": {"calendly", "cal_com", "savvycal", "google_appointments", "hubspot_meetings", "none", "other"},
+    "invoicing": {"stripe", "quickbooks", "freshbooks", "wave", "xero", "honeybook", "dubsado", "paypal", "none", "other"},
+    "esign": {"dropbox_sign", "docusign", "pandadoc", "adobe_sign", "none", "other"},
+    "proposals": {"pandadoc", "proposify", "google_docs", "word", "notion", "none", "other"},
+    "crm": {"hubspot", "pipedrive", "notion", "airtable", "sheet", "none", "other"},
+    "files": {"google_drive", "onedrive", "dropbox", "local", "other"},
+}
+SECRET_KEY_RE = re.compile(r"(?i)(password|passcode|api[_-]?key|secret|token|ssn|passport|account[_-]?number|routing|iban|card[_-]?number)")
 
 SSN_RE = re.compile(r"\b(?!000|666|9\d\d)\d{3}-(?!00)\d{2}-(?!0000)\d{4}\b")
 CARD_RE = re.compile(r"\b(?:\d[ -]?){13,19}\b")
@@ -173,6 +186,51 @@ def check_lanes(l: dict, errs: list[str], warns: list[str]) -> None:
         warns.append("lanes.yaml: no engine is enabled")
 
 
+def walk_keys(node, path=""):
+    if isinstance(node, dict):
+        for k, v in node.items():
+            yield f"{path}.{k}" if path else str(k), k
+            yield from walk_keys(v, f"{path}.{k}" if path else str(k))
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            yield from walk_keys(v, f"{path}[{i}]")
+
+
+def check_logistics(g: dict, claims: dict, errs: list[str], warns: list[str]) -> None:
+    for where, key in walk_keys(g):
+        if SECRET_KEY_RE.search(str(key)):
+            errs.append(f"logistics.yaml: {where} is not allowed; never store secrets or ID numbers")
+    for k, v in (g.get("links") or {}).items():
+        if v and not str(v).startswith("https://"):
+            errs.append(f"logistics.yaml: links.{k} must start with https://")
+    for k, v in (g.get("systems") or {}).items():
+        if v and k in SYSTEMS and v not in SYSTEMS[k]:
+            errs.append(f"logistics.yaml: systems.{k} must be one of {sorted(SYSTEMS[k])}")
+    ids = {c.get("id") for c in (claims.get("claims") or []) if isinstance(c, dict)}
+    for i, cr in enumerate(g.get("credentials") or []):
+        if isinstance(cr, dict) and cr.get("claim_id") and cr["claim_id"] not in ids:
+            warns.append(f"logistics.yaml: credentials[{i}].claim_id {cr['claim_id']!r} has no matching claim; add a sourced claim")
+    eeo = (g.get("application_answers") or {}).get("eeo_self_id", "decline")
+    if eeo not in {"decline", "ask_me"}:
+        errs.append("logistics.yaml: application_answers.eeo_self_id must be decline or ask_me (answers are never stored)")
+    if not (g.get("links") or {}).get("booking"):
+        warns.append("logistics.yaml: links.booking is empty; replies cannot offer a time")
+
+
+def check_today(l: dict, errs: list[str]) -> None:
+    t = l.get("today")
+    if not isinstance(t, dict):
+        return
+    if "focus_mode" in t and not isinstance(t["focus_mode"], bool):
+        errs.append("lanes.yaml: today.focus_mode must be true or false")
+    mi = t.get("max_items", 7)
+    if not isinstance(mi, int) or not 1 <= mi <= 10:
+        errs.append("lanes.yaml: today.max_items must be 1 to 10")
+    hm = t.get("human_minutes_per_day", 45)
+    if not isinstance(hm, int) or not 5 <= hm <= 480:
+        errs.append("lanes.yaml: today.human_minutes_per_day must be 5 to 480")
+
+
 def check_never_say(ctx: Path, claims: dict, errs: list[str]) -> None:
     terms = [t for t in (claims.get("never_say") or []) if str(t).strip()]
     if not terms:
@@ -188,7 +246,7 @@ def check_never_say(ctx: Path, claims: dict, errs: list[str]) -> None:
                 errs.append(f"{name}: contains never_say term {term!r}")
 
 
-def export_pack(ctx: Path, claims: dict, constraints: dict, lanes: dict) -> dict:
+def export_pack(ctx: Path, claims: dict, constraints: dict, lanes: dict, logistics: dict | None = None) -> dict:
     read = lambda n: (ctx / n).read_text(encoding="utf-8") if (ctx / n).exists() else ""
     public = [c for c in claims.get("claims", []) if "private" not in (c.get("ok_for") or [])]
     return {
@@ -201,6 +259,7 @@ def export_pack(ctx: Path, claims: dict, constraints: dict, lanes: dict) -> dict
         "never_say": claims.get("never_say", []),
         "constraints": constraints,
         "lanes": lanes,
+        "logistics": logistics or {},
         "voice_md": read("voice.md"),
         "messaging_kit_md": read("messaging-kit.md"),
         "profile_md": read("profile.md"),
@@ -231,6 +290,10 @@ def main(argv: list[str]) -> int:
         check_constraints(constraints, errs)
     if lanes:
         check_lanes(lanes, errs, warns)
+        check_today(lanes, errs)
+    logistics = load_yaml(ctx / "logistics.yaml", errs) if (ctx / "logistics.yaml").exists() else {}
+    if logistics:
+        check_logistics(logistics, claims, errs, warns)
     for p in sorted(ctx.glob("*")):
         if p.is_file() and p.suffix in {".md", ".yaml", ".yml", ".csv", ".txt"}:
             errs.extend(scan_sensitive(f"context/{p.name}", p.read_text(encoding="utf-8", errors="ignore")))
@@ -244,7 +307,7 @@ def main(argv: list[str]) -> int:
     print(f"OK: context pack in {ws} is valid ({len(claims.get('claims', []))} claims).")
     if "--export" in argv:
         out = Path(argv[argv.index("--export") + 1])
-        out.write_text(json.dumps(export_pack(ctx, claims, constraints, lanes), indent=2, default=str), encoding="utf-8")
+        out.write_text(json.dumps(export_pack(ctx, claims, constraints, lanes, logistics), indent=2, default=str), encoding="utf-8")
         print(f"Exported portable pack to {out}")
     return 0
 

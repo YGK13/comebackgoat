@@ -1,0 +1,48 @@
+# The fact, credential and logistics bank: everything a reply, form or proposal needs, so you are asked once.
+# Harvested at setup from your signature, sent mail, files and tools; you confirm it once.
+# NEVER put passwords, API keys, tokens, ID numbers or full account numbers here: the validator refuses them.
+
+links:
+  booking: "https://cal.com/dana-reyes/30min" # main booking page (Calendly, Cal.com, SavvyCal, Google appointment page)
+  booking_intro: ""            # short intro-call link, if different
+  payment: ""                  # Stripe payment link, invoice portal or PayPal.me
+  website: "https://danareyes.example"
+  linkedin: ""
+  media_kit: ""                # speaker one-sheet or press page
+  portfolio: ""                # case studies page or folder link
+
+systems:                       # what you actually use; engines draft into these and never replace them
+  email: "gmail"                # gmail | outlook | other
+  calendar: ""                 # google | outlook | apple | other
+  scheduler: "cal_com"         # calendly | cal_com | savvycal | google_appointments | hubspot_meetings | none | other
+  invoicing: ""                # stripe | quickbooks | freshbooks | wave | xero | honeybook | dubsado | paypal | none | other
+  esign: "dropbox_sign"        # dropbox_sign | docusign | pandadoc | adobe_sign | none | other
+  proposals: ""                # pandadoc | proposify | google_docs | word | notion | none | other
+  crm: ""                      # hubspot | pipedrive | notion | airtable | sheet | none | other
+  files: ""                    # google_drive | onedrive | dropbox | local | other
+
+files:                         # paths or Drive links; newest version wins
+  resumes: []                  # - {label: "executive", path: "", updated: "YYYY-MM-DD"}
+  bios: []                     # - {words: 100, path: ""}
+  headshot: ""
+  one_pager: ""
+  case_studies: []
+  linkedin_export: ""          # folder with Connections.csv (network-engine)
+
+credentials: []                # professional credentials only: degrees, certifications, licenses, awards
+#  - {name: "SHRM-SCP", issuer: "SHRM", year: "2019", verify_url: "", claim_id: "shrm-scp"}
+
+application_answers:           # standard form answers reused by job-insurance, grant-hunter and project-hunter
+  notice_period: ""            # e.g. "2 weeks"
+  earliest_start: ""
+  salary_expectation: ""       # a range; leave empty if job stance is "no"
+  relocation: ""               # mirrors constraints.yaml
+  references: "available on request"
+  eeo_self_id: "decline"       # decline | ask_me (answers are never stored)
+  how_heard_default: ""
+
+availability:
+  meeting_windows: []          # e.g. ["Sun-Thu 15:00-19:00 Asia/Jerusalem"]
+  response_time: "1 business day"
+
+signature: ""                  # the exact sign-off block drafts use
