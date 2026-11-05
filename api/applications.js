@@ -1,7 +1,7 @@
 import { list, get } from '@vercel/blob';
 
 // Owner-only view of founding-cohort applications. Requires ?key=<ADMIN_KEY>.
-export default async function handler(request) {
+export async function GET(request) {
   const url = new URL(request.url);
   const key = process.env.ADMIN_KEY;
   if (!key || url.searchParams.get('key') !== key) {

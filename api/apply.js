@@ -4,8 +4,11 @@ const MAX = { name: 120, email: 200, linkedin: 300, situation: 80, role: 120, go
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 
-export default async function handler(request) {
-  if (request.method !== 'POST') return json({ error: 'Use POST.' }, 405);
+export function GET() {
+  return json({ error: 'Use POST.' }, 405);
+}
+
+export async function POST(request) {
   let data;
   try {
     data = await request.json();
