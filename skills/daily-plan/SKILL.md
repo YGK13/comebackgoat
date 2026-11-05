@@ -1,6 +1,6 @@
 ---
 name: daily-plan
-description: The do-it-for-me daily loop. Ranks every open item across the Revenue Engine trackers (and any brief, digest or to-do list the user pastes or forwards) by distance to revenue, does everything Claude can do itself right away (drafts, follow-ups, research, forms filled to the last click, tracker updates), and hands the user only what needs them - presses, decisions and live calls - in order, with minutes and the exact first step. Opt-in focus mode adds extra structure (3 items, a 10-minute starter first, new items parked, carryovers decided). Learns weekly which actions actually produced money and re-ranks. Use when the user says "what should I do today", "plan my day", "do what you can from this brief", "here's my morning digest", "work my to-do list", "what's closest to money", "focus mode" or forwards a brief or task list.
+description: The do-it-for-me daily loop. Ranks every open item across the Comeback GOAT trackers (and any brief, digest or to-do list the user pastes or forwards) by distance to revenue, does everything Claude can do itself right away (drafts, follow-ups, research, forms filled to the last click, tracker updates), and hands the user only what needs them - presses, decisions and live calls - in order, with minutes and the exact first step. Opt-in focus mode adds extra structure (3 items, a 10-minute starter first, new items parked, carryovers decided). Learns weekly which actions actually produced money and re-ranks. Use when the user says "what should I do today", "plan my day", "do what you can from this brief", "here's my morning digest", "work my to-do list", "what's closest to money", "focus mode" or forwards a brief or task list.
 ---
 
 # Daily Plan: Claude does the work, you do the presses
@@ -17,7 +17,7 @@ A new solo expert loses most days to work that feels productive and is far from 
 
 ## Inputs
 
-`RevenueEngine/trackers/*.csv` (shared columns, plus optional `updated`, `minutes`, `stage`), `context/lanes.yaml` (`today` block), `context/constraints.yaml`, `context/logistics.yaml` (links and standard answers Claude reuses), `trackers/calibration.json` (learned rates, if any). Run `revenue-engine-setup` first if `context/` is missing.
+`ComebackGOAT/trackers/*.csv` (shared columns, plus optional `updated`, `minutes`, `stage`), `context/lanes.yaml` (`today` block), `context/constraints.yaml`, `context/logistics.yaml` (links and standard answers Claude reuses), `trackers/calibration.json` (learned rates, if any). Run `comeback-setup` first if `context/` is missing.
 
 ## The loop
 
@@ -26,7 +26,7 @@ A new solo expert loses most days to work that feels productive and is far from 
 - **A pasted or forwarded brief, digest or to-do list:** split it into items and append each to `trackers/tasks.csv` (prefix `T-`, shared columns). Set `status` (`found` if Claude must still prepare it, `needs_you` if only the user can act), `stage` from the ladder, `value_usd` only when the source states an amount, and `next_action` as one verb-led line. Dedupe against open rows by title and link.
 
 ### 2. Plan
-Run `python3 scripts/plan_today.py plan RevenueEngine --save` (add `--focus` to force focus mode). It returns:
+Run `python3 scripts/plan_today.py plan ComebackGOAT --save` (add `--focus` to force focus mode). It returns:
 - **Claude does now:** items still at `found`, plus anything sent or submitted with no reply after `follow_up_days`.
 - **You, in this order:** presses, decisions and live calls, each with its R-level, minutes, amount (only if sourced) and deadline, inside the user's daily minutes budget.
 - **Parked**, **expired** and up to 3 **suggestions** for pipeline gaps.
@@ -42,7 +42,7 @@ One message, phone-sized (`references/plan-format.md`): what Claude just did (on
 Mark done items `sent`/`submitted`/`won`; deferred items get a date in `next_action`; dropped items `skipped` with the reason. Unanswered items carry over and are counted; in focus mode an item carried twice must be decided.
 
 ### 6. Learn (weekly, first workday)
-Run `python3 scripts/plan_today.py learn RevenueEngine`. It blends real outcomes with the default priors (`calibration.json`), so the user's own conversion rates take over as evidence builds. Then write 3 lines to `trackers/learnings.md`: which stage and engine produced replies and money, what stalled, one proposed change to `lanes.yaml`. Apply lane changes only with the user's yes, at most 5 points per weight per week.
+Run `python3 scripts/plan_today.py learn ComebackGOAT`. It blends real outcomes with the default priors (`calibration.json`), so the user's own conversion rates take over as evidence builds. Then write 3 lines to `trackers/learnings.md`: which stage and engine produced replies and money, what stalled, one proposed change to `lanes.yaml`. Apply lane changes only with the user's yes, at most 5 points per weight per week.
 
 ## Focus mode (opt-in extra structure)
 
@@ -50,4 +50,4 @@ Offered at onboarding as "extra structure: fewer items, one at a time, Claude ke
 
 ## Scheduled use
 
-When `revenue-autopilot` is on, a scheduled run executes steps 1 to 3 before the Revenue Brief, so the brief arrives with Claude's part already done and lists only the user's part. Forwarding the brief back is then optional: "go" in reply does the rest.
+When `comeback-autopilot` is on, a scheduled run executes steps 1 to 3 before the Revenue Brief, so the brief arrives with Claude's part already done and lists only the user's part. Forwarding the brief back is then optional: "go" in reply does the rest.

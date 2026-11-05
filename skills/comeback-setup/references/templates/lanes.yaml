@@ -44,6 +44,14 @@ network:
   max_drafts_per_day: 5        # reconnection and intro drafts across all lanes; maximum 5
   connector_income: false      # recruiting referrals, partner referrals, venture scouting (opt-in)
 
+boomerang:
+  enabled: true
+  cadence: weekly
+  default_offer: consultant_first   # consultant_first | either (either lets rehire_ok employers get rehire routes)
+  employers: []
+  #  - {name: "Acme Health", left_on: "2025-06-30", left_as: "VP People", terms: good, restriction_until: "", rehire_ok: false}
+  #    terms: good | neutral | difficult. restriction_until: the last day of any non-solicit, non-compete or consulting ban
+
 today:
   enabled: true
   focus_mode: false            # extra structure: 3 items, a 10-minute starter first, new items parked, carryovers decided

@@ -1,9 +1,9 @@
 # Workspace layout
 
-One folder per business, owned by the user. Every Revenue Engine skill reads `context/` and writes only to `trackers/`, `packages/` and `runs/`.
+One folder per business, owned by the user. Every Comeback GOAT skill reads `context/` and writes only to `trackers/`, `packages/` and `runs/`.
 
 ```
-RevenueEngine/
+ComebackGOAT/
   context/
     capabilities.md      what this session can reach (connectors, folder, browser, scheduler)
     evidence.md          every harvested fact: fact | source | date seen
@@ -20,6 +20,7 @@ RevenueEngine/
     projects.csv         project-hunter queue
     jobs.csv             job-insurance queue
     network.csv          network-engine intros and reconnections
+    boomerang.csv        former-employer reconnections and offers (B- prefix)
     tasks.csv            items from pasted briefs and to-do lists (daily-plan, T- prefix)
     calibration.json     learned win rates by stage and engine (daily-plan learn)
     learnings.md         what got replies, wins, skips and why (all engines)
@@ -34,11 +35,11 @@ RevenueEngine/
 
 ## Tracker columns (CSV, header row required)
 
-All trackers share the first seven columns so revenue-autopilot can merge them into one digest:
+All trackers share the first seven columns so comeback-autopilot can merge them into one digest:
 
 `id,date_found,engine,title,link,value_usd,status,deadline,score,prepared,next_action,notes`
 
-- `id`: `<engine-prefix>-<n>` (M-, G-, P-, J-, N-, T-), never reused.
+- `id`: `<engine-prefix>-<n>` (M-, G-, P-, J-, N-, B-, T-), never reused.
 - `value_usd`: a number only when the source states it; otherwise empty. Never an estimate.
 - `status`: one of `found`, `prepared`, `needs_you`, `sent`, `submitted`, `won`, `lost`, `skipped`, `expired`.
 - `prepared`: under 80 characters ("Gmail draft ready", "Form filled, Submit waits", "Claim link + steps").

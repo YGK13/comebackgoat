@@ -5,12 +5,12 @@ Generalized from Yuri Kruman's private job-engine index (Portfolio Leverage Co.)
 Standard library only. Never sends anything anywhere; reads files, writes one JSON file.
 
 Build:
-    python3 network_index.py build --owner "Full Name" --out RevenueEngine/private/network.json \
+    python3 network_index.py build --owner "Full Name" --out ComebackGOAT/private/network.json \
         [--connections Connections.csv] [--contacts google-contacts.csv] \
         [--messages messages.csv] [--invitations Invitations.csv]
 
 Query:
-    python3 network_index.py lookup --index RevenueEngine/private/network.json --company "Acme" [--top 15]
+    python3 network_index.py lookup --index ComebackGOAT/private/network.json --company "Acme" [--top 15]
     python3 network_index.py lookup --index ... --title "head of people" [--top 15]
     python3 network_index.py stats  --index ...
 

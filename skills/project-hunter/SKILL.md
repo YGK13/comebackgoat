@@ -18,7 +18,7 @@ For a newly independent expert, the first 3 to 5 paying engagements almost alway
 
 ## Inputs
 
-`RevenueEngine/context/` and the `project_hunter` block of `lanes.yaml` (engagement types, day rate, project minimum, weights, daily target). Run `revenue-engine-setup` first if missing. Dedupe against `trackers/projects.csv`.
+`ComebackGOAT/context/` and the `project_hunter` block of `lanes.yaml` (engagement types, day rate, project minimum, weights, daily target). Run `comeback-setup` first if missing. Dedupe against `trackers/projects.csv`.
 
 ## Run (sources in `references/lanes-and-sources.md`)
 

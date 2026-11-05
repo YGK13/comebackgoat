@@ -8,7 +8,7 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "skills/revenue-engine-setup/scripts/validate_pack.py"
+SCRIPT = ROOT / "skills/comeback-setup/scripts/validate_pack.py"
 SAMPLE = ROOT / "examples/sample-workspace"
 
 
@@ -113,7 +113,7 @@ class ValidatorTests(unittest.TestCase):
         self.assertIn("entity.ein", out)
 
     def test_template_example_claim_rejected(self):
-        tmpl = ROOT / "skills/revenue-engine-setup/references/templates/claims.yaml"
+        tmpl = ROOT / "skills/comeback-setup/references/templates/claims.yaml"
         shutil.copy(tmpl, self.ctx / "claims.yaml")
         code, out = run(self.ws)
         self.assertEqual(code, 1)
@@ -142,6 +142,18 @@ class ValidatorTests(unittest.TestCase):
         code, out = run(self.ws, "--export", str(out_file))
         self.assertEqual(code, 0, out)
         self.assertEqual(json.loads(out_file.read_text())["logistics"]["systems"]["scheduler"], "cal_com")
+
+    def test_boomerang_restriction_date_format(self):
+        self.replace("lanes.yaml", 'restriction_until: "2026-09-30"', 'restriction_until: "Sept 2026"')
+        code, out = run(self.ws)
+        self.assertEqual(code, 1)
+        self.assertIn("restriction_until must be YYYY-MM-DD", out)
+
+    def test_boomerang_bad_terms(self):
+        self.replace("lanes.yaml", "terms: good", "terms: awful")
+        code, out = run(self.ws)
+        self.assertEqual(code, 1)
+        self.assertIn("terms must be", out)
 
 
 if __name__ == "__main__":

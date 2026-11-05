@@ -11,5 +11,5 @@ jobs:
       - run: python3 scripts/validate_skills.py
       - run: python3 -m unittest discover tests
       - run: |
-          python3 skills/revenue-engine-setup/scripts/validate_pack.py examples/sample-workspace --export /tmp/pack.json
+          python3 skills/comeback-setup/scripts/validate_pack.py examples/sample-workspace --export /tmp/pack.json
           python3 -c "import json,jsonschema; jsonschema.validate(json.load(open('/tmp/pack.json')), json.load(open('schemas/context-pack.schema.json'))); print('schema OK')"

@@ -1,6 +1,6 @@
 ---
-name: revenue-autopilot
-description: Put the Revenue Engine on a schedule - creates the user's scheduled tasks for money-sweep, grant-hunter, project-hunter and job-insurance from their Founder Context Pack, plus one short daily Revenue Brief that merges every engine's "needs you" items, deadlines and wins. Draft-only by design. Also handles "send 2, submit 5"-style replies, pausing an engine, changing caps and the weekly scorecard. Use when the user says "run this every day", "put it on autopilot", "schedule my engines", "daily revenue brief", "what needs me today", or "pause the job search".
+name: comeback-autopilot
+description: Put the Comeback GOAT on a schedule - creates the user's scheduled tasks for money-sweep, grant-hunter, project-hunter and job-insurance from their Founder Context Pack, plus one short daily Revenue Brief that merges every engine's "needs you" items, deadlines and wins. Draft-only by design. Also handles "send 2, submit 5"-style replies, pausing an engine, changing caps and the weekly scorecard. Use when the user says "run this every day", "put it on autopilot", "schedule my engines", "daily revenue brief", "what needs me today", or "pause the job search".
 ---
 
 # Revenue Autopilot
@@ -16,7 +16,7 @@ The engines are only valuable if they run when the user is busy. Autopilot sched
 
 ## Set up (first time)
 
-1. Confirm the pack exists and validates (`revenue-engine-setup`). List enabled engines from `lanes.yaml`.
+1. Confirm the pack exists and validates (`comeback-setup`). List enabled engines from `lanes.yaml`.
 2. Check the scheduler this session offers (scheduled tasks in the Claude app, or cron-style routines in Claude Code). If none, say so and give the user the prompts to schedule from the app.
 3. Propose a schedule in the user's time zone, staggered so engines finish before the brief (defaults in `references/schedule.md`), skipping their days off. Use an off-the-hour minute.
 4. Build each task prompt from `references/task-prompt-template.md`, filled with the workspace path and caps. Show the list in one message; create on the user's yes. Report each task's approval setting from the scheduler's response.

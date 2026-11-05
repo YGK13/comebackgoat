@@ -1,9 +1,9 @@
 ---
-name: revenue-engine-setup
-description: First-run onboarding for the Revenue Engine. Builds the user's Founder Context Pack (who they are, what they sell, what is true and provable, how they sound, their hard constraints) by reading their email, files and public web presence first and asking only the few questions those sources cannot answer. Every other Revenue Engine skill (money-sweep, grant-hunter, project-hunter, job-insurance, network-engine, daily-plan, revenue-autopilot) reads this pack. Use when the user says "set up my revenue engine", "onboard me", "build my profile", "calibrate", "start here", or when another Revenue Engine skill finds no context pack.
+name: comeback-setup
+description: First-run onboarding for the Comeback GOAT. Builds the user's Founder Context Pack (who they are, what they sell, what is true and provable, how they sound, their hard constraints) by reading their email, files and public web presence first and asking only the few questions those sources cannot answer. Every other Comeback GOAT skill (money-sweep, grant-hunter, project-hunter, job-insurance, network-engine, boomerang, daily-plan, comeback-autopilot) reads this pack. Use when the user says "set up my revenue engine", "onboard me", "build my profile", "calibrate", "start here", or when another Comeback GOAT skill finds no context pack.
 ---
 
-# Revenue Engine Setup: the Founder Context Pack
+# Comeback GOAT Setup: the Founder Context Pack
 
 The buyer is usually a corporate leader who just went solo (consultant, coach, advisor, fractional exec) and is doing this for the first time. They want money moving within days, not a branding exercise. This onboarding is how every later draft, application and pitch stays accurate, consistent and in their voice.
 
@@ -20,7 +20,7 @@ The buyer is usually a corporate leader who just went solo (consultant, coach, a
 
 ## Step 0: Choose the workspace (30 seconds)
 
-The pack lives in a folder the user owns. Default name `RevenueEngine/`.
+The pack lives in a folder the user owns. Default name `ComebackGOAT/`.
 - Claude Code or a desktop session with a connected folder: create it there.
 - Chat-only session: keep the pack in the session working directory and offer a Docs artifact copy of `profile.md` so it survives.
 Create the layout in `references/workspace-layout.md`. Copy the templates from `references/templates/` (do not invent new file shapes).
@@ -66,8 +66,9 @@ Run `references/alignment-check.md`: compare resume vs LinkedIn vs website vs em
 - `context/messaging-kit.md`: one-liner, 50/100/250-word bios, three proof stories, the answer to "why you, why now", rate card language. Built only from `claims.yaml`.
 - `context/constraints.yaml`: hard filters every engine applies.
 - `context/lanes.yaml`: which engines are on, their targets, daily caps and scoring weights (defaults in the template), plus the `today` block (daily minutes budget, focus mode).
+- The `boomerang` block in `lanes.yaml`: every former employer from the resume and LinkedIn history, prefilled; ask once for exit terms (good, neutral, difficult), any non-solicit or non-compete end date and whether a rehire is welcome.
 - `context/logistics.yaml`: the fact, credential and logistics bank (links, systems of record, file locations, credentials, standard application answers, meeting windows, signature). Show it as one short table and ask "anything wrong?" once. It never holds passwords, keys or ID numbers.
-Run `python3 scripts/validate_pack.py RevenueEngine` (this skill's `scripts/` folder) when Python is available; fix every error it reports.
+Run `python3 scripts/validate_pack.py ComebackGOAT` (this skill's `scripts/` folder) when Python is available; fix every error it reports.
 
 ## Step 6: First quick win before setup ends
 
@@ -75,7 +76,7 @@ Ask which to run now (default: the network-engine warm-path map if a LinkedIn ex
 
 ## Step 7: Offer autopilot and the daily plan
 
-Offer `revenue-autopilot` to schedule the engines (draft-only, with a daily digest) and `daily-plan`, which does Claude's part of each day before the brief arrives. Explain the rule in one line: "They prepare; you press Send or Submit." Ask one question: "Do you want extra structure: fewer items, one at a time, with Claude keeping you on track?" A yes sets `today.focus_mode: true`; never ask why.
+Offer `comeback-autopilot` to schedule the engines (draft-only, with a daily digest) and `daily-plan`, which does Claude's part of each day before the brief arrives. Explain the rule in one line: "They prepare; you press Send or Submit." Ask one question: "Do you want extra structure: fewer items, one at a time, with Claude keeping you on track?" A yes sets `today.focus_mode: true`; never ask why.
 
 ## Re-running
 

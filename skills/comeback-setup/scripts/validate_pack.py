@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a Revenue Engine workspace and optionally export the portable Context Pack.
+"""Validate a Comeback GOAT workspace and optionally export the portable Context Pack.
 
 Usage:
     python3 validate_pack.py <workspace-dir>
@@ -217,6 +217,28 @@ def check_logistics(g: dict, claims: dict, errs: list[str], warns: list[str]) ->
         warns.append("logistics.yaml: links.booking is empty; replies cannot offer a time")
 
 
+def check_boomerang(l: dict, errs: list[str], warns: list[str]) -> None:
+    b = l.get("boomerang")
+    if not isinstance(b, dict):
+        return
+    if b.get("default_offer", "consultant_first") not in {"consultant_first", "either"}:
+        errs.append("lanes.yaml: boomerang.default_offer must be consultant_first or either")
+    for i, e in enumerate(b.get("employers") or []):
+        where = f"lanes.yaml: boomerang.employers[{i}]"
+        if not isinstance(e, dict) or not str(e.get("name", "")).strip():
+            errs.append(f"{where}: name is required")
+            continue
+        for k in ("left_on", "restriction_until"):
+            v = str(e.get(k, "") or "")
+            if v and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", v):
+                errs.append(f"{where}.{k} must be YYYY-MM-DD")
+        if str(e.get("terms", "neutral")) not in {"good", "neutral", "difficult"}:
+            errs.append(f"{where}.terms must be good, neutral or difficult")
+        until = str(e.get("restriction_until", "") or "")
+        if until and until > date.today().isoformat():
+            warns.append(f"{where}: {e['name']} is blocked for outreach until {until}")
+
+
 def check_today(l: dict, errs: list[str]) -> None:
     t = l.get("today")
     if not isinstance(t, dict):
@@ -291,6 +313,7 @@ def main(argv: list[str]) -> int:
     if lanes:
         check_lanes(lanes, errs, warns)
         check_today(lanes, errs)
+        check_boomerang(lanes, errs, warns)
     logistics = load_yaml(ctx / "logistics.yaml", errs) if (ctx / "logistics.yaml").exists() else {}
     if logistics:
         check_logistics(logistics, claims, errs, warns)

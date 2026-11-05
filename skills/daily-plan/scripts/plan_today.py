@@ -44,7 +44,7 @@ LADDER = {
 ENGINE_PRIOR = {("apply", "G"): 0.08, ("apply", "J"): 0.03}
 
 ENGINES = {"M": "money-sweep", "G": "grant-hunter", "P": "project-hunter", "J": "job-insurance",
-           "N": "network-engine", "T": "task"}
+           "N": "network-engine", "B": "boomerang", "T": "task"}
 OPEN = {"found", "prepared", "needs_you", "sent", "submitted"}
 CLOSED_WIN = {"won"}
 CLOSED_LOSS = {"lost", "expired", "skipped"}
@@ -126,7 +126,7 @@ def infer_stage(row: dict, eng: str) -> str:
             if stage == "conversation" and eng in {"G", "J"} and "interview" not in text:
                 continue
             return stage
-    return {"M": "cash", "G": "apply", "J": "apply", "N": "warm", "P": "cold"}.get(eng, "admin")
+    return {"M": "cash", "G": "apply", "J": "apply", "N": "warm", "B": "warm", "P": "cold"}.get(eng, "admin")
 
 
 def load_rows(ws: Path) -> list[dict]:

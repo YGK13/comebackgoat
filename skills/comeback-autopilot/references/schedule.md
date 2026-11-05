@@ -8,6 +8,7 @@
 | Money sweep: receivables and platform payouts | 06:52 | weekly (first workday) | 10 min |
 | Money sweep: full (registries, exit audit) | 06:52 | at onboarding, then quarterly | 30 min |
 | Network engine: warm paths and reconnections | 06:47 | weekly (first workday) | 10 min |
+| Boomerang: roster, signals, consultant-first drafts | 07:03 | weekly (first workday) | 10 min |
 | Daily plan: do Claude's part (daily-plan steps 1 to 3) | 07:51 | daily | 10 to 25 min |
 | Revenue Brief | 08:04 | daily | 2 min |
 | Daily plan: learn (re-rank from outcomes) | 08:23 | weekly (first workday) | 2 min |

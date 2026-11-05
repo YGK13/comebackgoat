@@ -18,7 +18,7 @@ A read-only investigation that turns an inbox, a hard drive and public registrie
 
 ## Before you start
 
-Read `RevenueEngine/context/claims.yaml`, `constraints.yaml` and the `money_sweep` block of `lanes.yaml`. If they are missing, run the `revenue-engine-setup` skill first, or for a one-off sweep ask in one message: legal and former names, business names (current and dissolved), every state and country lived or worked in with rough years, past employers with retirement plans and the date they left their last job if within 2 years.
+Read `ComebackGOAT/context/claims.yaml`, `constraints.yaml` and the `money_sweep` block of `lanes.yaml`. If they are missing, run the `comeback-setup` skill first, or for a one-off sweep ask in one message: legal and former names, business names (current and dissolved), every state and country lived or worked in with rough years, past employers with retirement plans and the date they left their last job if within 2 years.
 
 ## The sweep (work through `references/source-checklist.md`)
 
@@ -33,7 +33,7 @@ Read `RevenueEngine/context/claims.yaml`, `constraints.yaml` and the `money_swee
 
 ## Output: the ledger
 
-Write `RevenueEngine/trackers/money-ledger.csv` (shared tracker columns from the setup skill) and show the user `references/ledger-template.md`'s summary:
+Write `ComebackGOAT/trackers/money-ledger.csv` (shared tracker columns from the setup skill) and show the user `references/ledger-template.md`'s summary:
 - **Act this week:** highest cash x speed first, each with the one next step and link.
 - **Deadlines:** anything with an expiry inside 60 days, soonest first.
 - **Confirmed total:** sum of rows with a sourced amount and high confidence. **Possible:** listed separately, never added.
@@ -42,4 +42,4 @@ Create Gmail drafts (never send) for chasers the user approves: an invoice remin
 
 ## After the sweep
 
-Append one line per finding to `trackers/learnings.md` noting which source produced money. Suggest a cadence (weekly for receivables, quarterly for registries) and offer `revenue-autopilot` to schedule it.
+Append one line per finding to `trackers/learnings.md` noting which source produced money. Suggest a cadence (weekly for receivables, quarterly for registries) and offer `comeback-autopilot` to schedule it.

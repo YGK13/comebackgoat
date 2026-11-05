@@ -1,6 +1,6 @@
 # Submission package
 
-One folder per application: `RevenueEngine/packages/<YYYY-MM-DD>-<slug>/package.md`.
+One folder per application: `ComebackGOAT/packages/<YYYY-MM-DD>-<slug>/package.md`.
 
 ```
 # <Funder> - <Program>

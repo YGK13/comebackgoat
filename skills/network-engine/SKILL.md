@@ -1,6 +1,6 @@
 ---
 name: network-engine
-description: Map and score the user's professional network from their own LinkedIn export, saved contacts and email, then find warm paths for every other Revenue Engine lane (a referral for a job, a former colleague at a company with a trigger, someone who knows a program officer) and surface connector income (recruiting referrals, paid introductions, venture scouting) within legal lines. Drafts intro requests for the user's yes; never messages anyone. Use when the user says "who do I know at", "warm intro", "map my network", "referral path", "who should I reconnect with", "connector income", or when another engine needs a warm path.
+description: Map and score the user's professional network from their own LinkedIn export, saved contacts and email, then find warm paths for every other Comeback GOAT lane (a referral for a job, a former colleague at a company with a trigger, someone who knows a program officer) and surface connector income (recruiting referrals, paid introductions, venture scouting) within legal lines. Drafts intro requests for the user's yes; never messages anyone. Use when the user says "who do I know at", "warm intro", "map my network", "referral path", "who should I reconnect with", "connector income", or when another engine needs a warm path.
 ---
 
 # Network Engine
@@ -10,7 +10,7 @@ A mid-career expert's network is their largest undeclared asset. This engine tur
 ## Non-negotiables
 
 1. **The member's own data only:** their LinkedIn data export, their contacts export, their own email. Never scrape LinkedIn or any site, never automate LinkedIn.
-2. **Other people's data stays private.** The index lives in `RevenueEngine/private/` (create it; it is never published, committed or uploaded). Drafts mention a contact only when the user is asking that contact for something.
+2. **Other people's data stays private.** The index lives in `ComebackGOAT/private/` (create it; it is never published, committed or uploaded). Drafts mention a contact only when the user is asking that contact for something.
 3. **Drafts only.** Intro requests and reconnection notes are Gmail drafts or text in the tracker. Nothing is sent, connected, liked or messaged.
 4. **No mass outreach.** At most 5 network drafts a day across all lanes, each written to one person about one specific ask.
 5. **Connector income stays legal** (`references/connector-income.md`): no success fees for introducing investors to securities offerings, no fees charged to job seekers, and state licensing checks for recruiting and real estate.
@@ -19,7 +19,7 @@ A mid-career expert's network is their largest undeclared asset. This engine tur
 
 1. Ask the user to request their LinkedIn data export (LinkedIn: Settings, Data privacy, Get a copy of your data; choose Connections and Messages; it arrives by email, usually within a day) and their Google or Outlook contacts export. Explain why in one line: "This is how I find who can open each door."
 2. Build the index (this skill's script, standard library only):
-   `python3 scripts/network_index.py build --owner "<name as on LinkedIn>" --out RevenueEngine/private/network.json --connections Connections.csv --contacts contacts.csv --messages messages.csv`
+   `python3 scripts/network_index.py build --owner "<name as on LinkedIn>" --out ComebackGOAT/private/network.json --connections Connections.csv --contacts contacts.csv --messages messages.csv`
 3. Show `stats`: people indexed, warmth bands, top 15 companies. Ask the user to mark 10 to 20 people they trust most (former bosses, clients, close peers); record them in `context/claims.yaml` under `never_say` only if they must not be mentioned, otherwise in `trackers/learnings.md` as "trusted connectors".
 4. No LinkedIn export yet: start from sent mail (people the user wrote to in the last 3 years, counted by thread) and refine later.
 

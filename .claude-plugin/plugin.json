@@ -1,21 +1,23 @@
 {
-  "name": "revenue-engine",
-  "version": "0.1.0",
-  "description": "Find money, grants, paid projects and job offers for a solo consultant, coach or advisor who just left corporate. One onboarding builds a Founder Context Pack from your email, files and the web; five engines then hunt daily and prepare every item to its last click for your yes.",
+  "name": "comeback-goat",
+  "version": "0.5.0",
+  "description": "Comeback GOAT: the comeback engine for experienced leaders going solo. One onboarding reads your email, files and the web; then the engines find warm paths, paid projects, boomerang returns, money you are owed, bridge roles and opt-in grants, and Claude prepares each one to its last click for your yes.",
   "author": {
     "name": "Portfolio Leverage Co.",
     "email": "support@portlev.com",
     "url": "https://portlev.com"
   },
-  "homepage": "https://portlev.com",
+  "homepage": "https://comebackgoat.com",
   "license": "Proprietary",
   "keywords": [
+    "comeback",
     "consulting",
     "fractional",
+    "boomerang",
+    "warm network",
     "grants",
     "unclaimed money",
     "job search",
-    "RFP",
     "solo business"
   ]
 }

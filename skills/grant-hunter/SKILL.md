@@ -18,7 +18,7 @@ No-equity money is real but small, slow and competitive for most solo operators,
 
 ## Inputs
 
-`RevenueEngine/context/` (claims, constraints, voice, messaging kit) and the `grant_hunter` block of `lanes.yaml`. If missing, run `revenue-engine-setup` first. Dedupe against `trackers/grants.csv` and the user's prior applications listed in `context/evidence.md`.
+`ComebackGOAT/context/` (claims, constraints, voice, messaging kit) and the `grant_hunter` block of `lanes.yaml`. If missing, run `comeback-setup` first. Dedupe against `trackers/grants.csv` and the user's prior applications listed in `context/evidence.md`.
 
 ## Run
 
@@ -28,7 +28,7 @@ No-equity money is real but small, slow and competitive for most solo operators,
 4. **Score** with the lane weights (default fit 30, value 25, odds 20, effort 15, urgency 10; rubric in `references/scoring.md`). Keep the lane's `min_score` and up, at most `per_run_target` items.
 5. **Prepare each kept item** using `references/submission-package.md`:
    - Funder with a published contact email or an inbound thread: a Gmail draft in the user's voice.
-   - Online form: write the full package to `RevenueEngine/packages/<date>-<slug>/`, then fill the form in the browser (only forms that need no account or sign-in), stop before Submit with no error showing, leave the tab open.
+   - Online form: write the full package to `ComebackGOAT/packages/<date>-<slug>/`, then fill the form in the browser (only forms that need no account or sign-in), stop before Submit with no error showing, leave the tab open.
    - Form that needs an account, signature, attestation, fee or a document only the user has: status `needs_you` with exactly which.
 6. **Record** rows in `trackers/grants.csv` (shared columns) and a run log in `runs/`.
 7. **Learn.** Items the user marked skipped or that were declined: if 3 or more share a reason (too small, wrong stage, too much effort), add a line to `trackers/learnings.md` and adjust the focus or weights in `lanes.yaml` by at most 5 points per week, telling the user what changed.

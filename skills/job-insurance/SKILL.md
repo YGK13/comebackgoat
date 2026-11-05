@@ -19,7 +19,7 @@ Insurance and bridge income, not a second career. Search contract, interim and f
 
 ## Inputs
 
-`RevenueEngine/context/` (claims, constraints, voice), the `job_insurance` block of `lanes.yaml` (titles, adjacent titles, target companies, weights, cap) and the user's base resume (ask where it is during the first run; never rebuild it from memory). Dedupe against `trackers/jobs.csv`.
+`ComebackGOAT/context/` (claims, constraints, voice), the `job_insurance` block of `lanes.yaml` (titles, adjacent titles, target companies, weights, cap) and the user's base resume (ask where it is during the first run; never rebuild it from memory). Dedupe against `trackers/jobs.csv`.
 
 ## Run
 
