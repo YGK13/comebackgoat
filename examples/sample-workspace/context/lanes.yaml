@@ -2,7 +2,7 @@
 
 money_sweep:
   enabled: true
-  cadence: weekly              # daily | weekly | monthly
+  cadence: quarterly           # full sweep at onboarding, then quarterly; receivables weekly              # daily | weekly | monthly
   states_lived_or_worked: [IL, OH]   # e.g. ["NY", "CA"]
   countries: [US]      # e.g. ["US"]
   former_names: []
@@ -10,9 +10,9 @@ money_sweep:
   left_corporate_on: ""        # YYYY-MM-DD; turns on the corporate exit audit for 24 months
 
 grant_hunter:
-  enabled: true
-  cadence: daily
-  daily_target: 6
+  enabled: false               # opt-in: grants rarely fund a solo practice (the SBA says it does not fund starting a business)
+  cadence: weekly
+  per_run_target: 4
   min_score: 60
   weights: {fit: 30, value: 25, odds: 20, effort: 15, urgency: 10}
   focus: []                    # e.g. ["AI for work", "women-owned", "New York small business"]
@@ -21,7 +21,7 @@ grant_hunter:
 project_hunter:
   enabled: true
   cadence: daily
-  daily_target: 8
+  per_run_target: 8
   min_score: 60
   weights: {fit: 30, value: 25, warm_path: 20, speed_to_cash: 15, effort: 10}
   engagement_types: [advisory, fractional, project, workshop]       # advisory | fractional | project | workshop | speaking | expert_calls | subcontract | rfp

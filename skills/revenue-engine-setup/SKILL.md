@@ -25,6 +25,10 @@ The pack lives in a folder the user owns. Default name `RevenueEngine/`.
 - Chat-only session: keep the pack in the session working directory and offer a Docs artifact copy of `profile.md` so it survives.
 Create the layout in `references/workspace-layout.md`. Copy the templates from `references/templates/` (do not invent new file shapes).
 
+## Privacy choices (offer before Step 1)
+
+Most owners don't trust AI with their data unsupervised. Offer three ways in and respect the choice: (a) connect email and drive read-only; (b) upload a folder of chosen files instead (resume, LinkedIn PDF, decks, a mail export of selected threads); (c) answer questions only. Whichever they choose, keep a plain list of every file and email thread read in `context/evidence.md`, and at the end offer to delete raw extracts so only the approved canon remains.
+
 ## Step 1: Detect what you can reach (silent)
 
 Check, without asking: email connector (Gmail or Outlook), cloud drive (Google Drive, OneDrive, Notion), a local folder or device bridge, web search and fetch, a browser, a scheduler, accounting or payments connectors (QuickBooks, Stripe, Mercury, PayPal). Record the result in `context/capabilities.md`.
@@ -65,7 +69,7 @@ Run `python3 scripts/validate_pack.py RevenueEngine` (this skill's `scripts/` fo
 
 ## Step 6: First quick win before setup ends
 
-Ask which to run now (default: money-sweep quick pass). The goal is one real finding in the first session: a forgotten balance, an unpaid invoice, an open grant they qualify for or one verified project lead. Hand off to that skill.
+Ask which to run now (default: the network-engine warm-path map if a LinkedIn export or contacts file exists, otherwise a money-sweep quick pass). Promise only what the evidence supports: the goal is a first paid conversation booked and an offer sent within 14 days, never a replaced salary. The goal is one real finding in the first session: a forgotten balance, an unpaid invoice, an open grant they qualify for or one verified project lead. Hand off to that skill.
 
 ## Step 7: Offer autopilot
 

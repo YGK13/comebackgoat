@@ -4,9 +4,10 @@
 |---|---|---|---|
 | Job insurance: status + find + fill | 06:41 | daily | 15 to 30 min |
 | Project hunter | 07:12 | daily | 10 to 20 min |
-| Grant hunter | 07:33 | daily | 10 to 20 min |
+| Grant hunter (opt-in) | 07:33 | weekly | 10 to 20 min |
 | Money sweep: receivables and platform payouts | 06:52 | weekly (first workday) | 10 min |
-| Money sweep: full (registries, exit audit) | 06:52 | quarterly | 30 min |
+| Money sweep: full (registries, exit audit) | 06:52 | at onboarding, then quarterly | 30 min |
+| Network engine: warm paths and reconnections | 06:47 | weekly (first workday) | 10 min |
 | Revenue Brief | 08:04 | daily | 2 min |
 | Weekly scorecard | 08:19 | weekly | 5 min |
 

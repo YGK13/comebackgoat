@@ -5,7 +5,7 @@ description: Find and prepare no-equity money for a solo business or nonprofit -
 
 # Grant Hunter
 
-No-equity money is real but small, slow and competitive for most solo operators. The engine's job is to find the few programs the user actually qualifies for, prepare them so applying costs minutes and keep the hit rate honest. Reach the user with fewer, better items, never a long list of maybes.
+No-equity money is real but small, slow and competitive for most solo operators, and the US Small Business Administration states it does not give grants for starting or expanding a business (its exceptions are R&D, export and training programs). So this engine is opt-in and runs weekly by default; it earns its place for nonprofits, R&D-heavy products, founders with demographic or regional eligibility and builders of public-interest tools. The engine's job is to find the few programs the user actually qualifies for, prepare them so applying costs minutes and keep the hit rate honest. Reach the user with fewer, better items, never a long list of maybes.
 
 ## Non-negotiables
 
@@ -25,7 +25,7 @@ No-equity money is real but small, slow and competitive for most solo operators.
 1. **Inbox first.** Search the last 3 days (first run: 120 days) for funder replies, invitations, award or decline notices and opportunity newsletters. Replies update their tracker rows; newsletter items become leads.
 2. **Find.** Work the categories in `references/source-map.md` that match the user's entity, location, stage and focus, rotating at least 10 sources per run. Use web search (and the Kindora funder discovery connector for nonprofits when available). Search public LinkedIn and X posts for "applications open", "call for proposals", "grant", "fellowship", "pitch competition" plus the user's focus terms.
 3. **Verify and gate.** Open each candidate's own page. Run `references/eligibility-gate.md` and the scam filter. Drop anything that fails, with a one-line reason in the run log.
-4. **Score** with the lane weights (default fit 30, value 25, odds 20, effort 15, urgency 10; rubric in `references/scoring.md`). Keep the lane's `min_score` and up, at most `daily_target` items.
+4. **Score** with the lane weights (default fit 30, value 25, odds 20, effort 15, urgency 10; rubric in `references/scoring.md`). Keep the lane's `min_score` and up, at most `per_run_target` items.
 5. **Prepare each kept item** using `references/submission-package.md`:
    - Funder with a published contact email or an inbound thread: a Gmail draft in the user's voice.
    - Online form: write the full package to `RevenueEngine/packages/<date>-<slug>/`, then fill the form in the browser (only forms that need no account or sign-in), stop before Submit with no error showing, leave the tab open.

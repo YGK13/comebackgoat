@@ -5,7 +5,7 @@ description: Run a quiet, verified job search in the background while the user b
 
 # Job Insurance
 
-Insurance, not a second career. A small number of well-chosen, well-tailored applications per day, ready for one click, while the business gets the user's attention. When asked to "auto-apply", explain once: fully automatic mass applying lowers reply rates, annoys recruiters and breaks platform rules; this engine does everything except the final click.
+Insurance and bridge income, not a second career. Search contract, interim and fractional roles first (they pay sooner and can become clients), then full-time roles if `constraints.job.stance` allows. A small number of well-chosen, well-tailored applications per day, ready for one click, while the business gets the user's attention. When asked to "auto-apply", explain once: fully automatic mass applying lowers reply rates, annoys recruiters and breaks platform rules; this engine does everything except the final click.
 
 ## Non-negotiables
 

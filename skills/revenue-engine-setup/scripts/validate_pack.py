@@ -37,7 +37,7 @@ ENTITY_TYPES = {"", "sole_prop", "llc", "s_corp", "c_corp", "nonprofit", "none"}
 APPETITE = {"client_work", "no_equity", "job", "equity", "loans"}
 JOB_STANCE = {"no", "if_great_fit", "active"}
 JOB_TYPES = {"full_time", "contract", "fractional", "part_time"}
-CADENCE = {"daily", "weekly", "monthly"}
+CADENCE = {"daily", "weekly", "monthly", "quarterly"}
 ENGAGEMENTS = {"advisory", "fractional", "project", "workshop", "speaking", "expert_calls", "subcontract", "rfp"}
 LANES = ["money_sweep", "grant_hunter", "project_hunter", "job_insurance"]
 
