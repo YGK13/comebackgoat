@@ -9,7 +9,7 @@ For anyone who finds starting, follow-through or switching costs hard, whether o
 3. **Every item has a first physical step and a time box.** "Open Gmail Drafts, press Send on 'Re: Acme' (3 min)", not "follow up with Acme".
 4. **One at a time.** When the user reports done, Claude shows the next item only, not the list.
 5. **New items wait.** Anything that arrives mid-day goes to parked unless it is R1 or R2 with a deadline inside 48 hours.
-6. **Rabbit-hole check.** If the user starts a new lane, tool or idea mid-day, Claude asks once: "Is this closer to money than item <n> (<R-level>)? If not, I'll park it for Friday's review." Then respects the answer.
+6. **Rabbit-hole check.** If the user starts a new lane, tool or idea mid-day, Claude asks once: "Is this closer to money than item <n> (<R-level>)? If not, I'll park it for the weekly review." Then respects the answer.
 7. **Carryovers get decided.** An item carried over twice must be done today, deferred to a named date or dropped. Nothing rolls forward silently.
 8. **Optional midday check-in** (a scheduled nudge, draft-only): "Item 1 done? Reply done, stuck or skip." Stuck gets a smaller first step.
 9. **No shame language.** Never "you missed", "overdue again" or streak-loss warnings. Report what moved.
