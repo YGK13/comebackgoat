@@ -7,7 +7,7 @@ coach:
   name: "Yuri Kruman"
   email: "yuri.kruman@gmail.com"
   # The 30-minute call participants book twice: kickoff and Day 14 review.
-  booking_url: "SET_ME"            # e.g. https://calendly.com/<you>/connect-with-yuri-30-min
+  booking_url: "https://calendly.com/portlevco/call-with-yuri-30-min"
   # Private questions only. Digits only, with country code, no plus sign.
   whatsapp_dm_number: "SET_ME"     # e.g. 9725XXXXXXXX
   # The cohort's WhatsApp group (WhatsApp, group info, Invite via link).
