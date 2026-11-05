@@ -82,6 +82,9 @@ section.hero{border-top:0;padding-block:32px 72px}
 .receipt img{display:block;width:100%;height:auto}
 .receipt.phone{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:20px 28px;align-items:center}
 .receipt.phone figcaption{max-width:46ch}
+.receipts.two{grid-template-columns:1fr 1fr}
+.receipt.side{display:grid;grid-template-columns:minmax(0,1.25fr) 1fr;gap:20px 28px;align-items:center}
+.rgroup{margin-top:28px;font:500 .8rem/1.3 var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--granite)}
 .receipt figcaption{display:flex;flex-direction:column;gap:4px;font-size:.95rem}
 .receipt figcaption b{font:900 2rem/1 var(--display);color:var(--blaze);font-variant-numeric:tabular-nums}
 .receipt figcaption .src{font:400 .78rem/1.4 var(--mono);color:var(--granite)}
@@ -166,7 +169,7 @@ footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;fle
   .engines{grid-template-columns:1fr}
   .engine:nth-child(odd),.engine:nth-child(even){padding-left:0;padding-right:0;border-left:0}
 }
-@media (max-width:640px){ .receipt.phone{grid-template-columns:1fr} .receipt.phone a{max-width:300px;margin-inline:auto} }
+@media (max-width:640px){ .receipts.two,.receipt.side{grid-template-columns:1fr} .receipt.phone{grid-template-columns:1fr} .receipt.phone a{max-width:300px;margin-inline:auto} }
 @media (max-width:520px){ .facts,.voices{grid-template-columns:1fr} form{grid-template-columns:1fr} .steps{grid-template-columns:1fr} section{padding-block:56px} }
 @media (prefers-reduced-motion:no-preference){
   .mail{animation:arrive .7s cubic-bezier(.2,.8,.2,1) both .15s}
@@ -275,16 +278,36 @@ footer{border-top:1px solid var(--line);padding-block:32px 48px;display:flex;fle
     </div>
     <div class="receipts-head">
       <h3>The receipts</h3>
-      <p class="muted" style="font-size:.9rem">Real screenshots. Names and account numbers blacked out. Tap to enlarge.</p>
+      <p class="muted" style="font-size:.9rem">Names and account numbers blacked out. Tap any receipt to enlarge.</p>
     </div>
+    <p class="rgroup">$9,900 from three people who already knew my work</p>
+    <div class="receipts two">
+      <figure class="receipt">
+        <a href="/proof/stripe-2500.webp" target="_blank" rel="noopener"><img src="/proof/stripe-2500.webp" width="1284" height="720" loading="lazy" alt="Stripe payment notification for $2,500.00 on June 25, 2026, with customer and payment details blacked out"></a>
+        <figcaption><b>$2,500</b><span>Client one: a paid engagement from someone I'd worked with before.</span><span class="src">Stripe payment email, Jun 25, 2026. Record reproduced from the original email.</span></figcaption>
+      </figure>
+      <figure class="receipt">
+        <a href="/proof/mercury-6000.webp" target="_blank" rel="noopener"><img src="/proof/mercury-6000.webp" width="1284" height="674" loading="lazy" alt="Mercury incoming payment of $6,000.00 posted October 14, 2026, categorized as revenue, account blacked out"></a>
+        <figcaption><b>$6,000</b><span>Client two: first payment on a $15,000 project, with $9,000 more invoiced.</span><span class="src">Mercury business checking, Oct 14, 2026. Record reproduced from the transaction.</span></figcaption>
+      </figure>
+    </div>
+    <div class="receipts">
+      <figure class="receipt phone">
+        <a href="/proof/client-deposit-redacted.webp" target="_blank" rel="noopener"><img src="/proof/client-deposit-redacted.webp" width="1170" height="2010" loading="lazy" alt="Bank app transfer detail: 4,425.00 shekels received July 26, 2026, transfer reason Authority Stack, with sender name, branch and account number blacked out"></a>
+        <figcaption><b>₪4,425</b><span>Client three: the deposit on an Authority Stack engagement.</span><span class="src">Bank app screenshot, Jul 26, 2026. About $1,402 at the Bank of Israel rate of 3.157 (Nov 4, 2026).</span></figcaption>
+      </figure>
+    </div>
+    <p class="rgroup">$18K I'd forgotten I had, found by Claude</p>
     <div class="receipts">
       <figure class="receipt">
         <a href="/proof/vanguard-ira-redacted.webp" target="_blank" rel="noopener"><img src="/proof/vanguard-ira-redacted.webp" width="1725" height="932" loading="lazy" alt="Vanguard balances page showing a Traditional IRA brokerage account worth $15,581.94 as of November 4, 2026, with the owner's name and account number blacked out"></a>
-        <figcaption><b>$15,581.94</b><span>A retirement account I'd stopped checking, flagged for handover to the state as unclaimed property. Claude found the warning in my inbox.</span><span class="src">Vanguard, Traditional IRA. Balance on Nov 4, 2026.</span></figcaption>
+        <figcaption><b>$15,581.94</b><span>A retirement account I'd stopped checking, flagged for handover to the state as unclaimed property. Claude found the warning in my inbox.</span><span class="src">Vanguard screenshot, Traditional IRA. Balance on Nov 4, 2026.</span></figcaption>
       </figure>
-      <figure class="receipt phone">
-        <a href="/proof/client-deposit-redacted.webp" target="_blank" rel="noopener"><img src="/proof/client-deposit-redacted.webp" width="1170" height="2010" loading="lazy" alt="Bank app transfer detail: 4,425.00 shekels received July 26, 2026, transfer reason Authority Stack, with sender name, branch and account number blacked out"></a>
-        <figcaption><b>₪4,425</b><span>Deposit from a client who already knew my work. One of the three relationships.</span><span class="src">Bank transfer, Jul 26, 2026. About $1,402 at the Bank of Israel rate of 3.157 (Nov 4, 2026).</span></figcaption>
+    </div>
+    <div class="receipts">
+      <figure class="receipt side">
+        <a href="/proof/fidelity-3000.webp" target="_blank" rel="noopener"><img src="/proof/fidelity-3000.webp" width="1284" height="700" loading="lazy" alt="Fidelity alert: $3,000.00 wired to business checking on September 16, 2026, account numbers blacked out"></a>
+        <figcaption><b>$3,000</b><span>Old cash sitting in a Fidelity account, wired back to my business account.</span><span class="src">Fidelity alert email, Sep 16, 2026, matching wire in Mercury the same day. Record reproduced from the original email.</span></figcaption>
       </figure>
     </div>
     <p class="kicker">Then I ran the finished system on my own inbox: seven money moves, 22 minutes, every one already drafted. The only thing missing was me pressing Send. That's why the program has a daily minimum and a coach.</p>
