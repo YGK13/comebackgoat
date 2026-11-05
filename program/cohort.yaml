@@ -11,7 +11,7 @@ coach:
   # Private questions only. Digits only, with country code, no plus sign.
   whatsapp_dm_number: "13474150265"
   # The cohort's WhatsApp group (WhatsApp, group info, Invite via link).
-  whatsapp_group_invite: "SET_ME"  # e.g. https://chat.whatsapp.com/XXXXXXXX
+  whatsapp_group_invite: "https://chat.whatsapp.com/JqzOTHvmJNcEPo7tOoFzjJ"
   # Your own days for cohort work; sprint emails that fall on other days are
   # drafted the working day before for Gmail Schedule send.
   working_days: ["Sun", "Mon", "Tue", "Wed", "Thu"]
