@@ -17,6 +17,10 @@ Your job is oversight, judgment and courage. Claude does the legwork from `PARTI
 - **It matches your ladder.** It mirrors your $997 SMB audit as the entry price, with the Authority Stack ($15K to $25K) as the top of the ladder.
 - **It filters out freeloaders.** People who pay show up to calls and press Send; free cohorts mostly produce excuses.
 
+**Stripe payment links (live):**
+- Full payment, $997: https://buy.stripe.com/3cI4gAd6R9FX3mCfbwgQE0U
+- Installment, $549 (send at acceptance, then again on Day 7): https://buy.stripe.com/9B614oaYJ6tLf5kfbwgQE0V
+
 **Effort guarantee (instead of a refund):** if a participant completes calibration by Day 2, sends at least 25 messages and attends at least 3 of 4 group calls, and still has no paid conversation booked by Day 14, you run another 14 days with them at no charge. This rewards effort, not attendance, and protects your reputation.
 
 **Refunds:** full refund if they withdraw before the kickoff call. No refunds after kickoff; the effort guarantee applies instead.
@@ -65,13 +69,14 @@ At $4,985 for the cohort that is roughly $190 an hour. That is founding-cohort e
 ## 4. Stage B: Prerequisites (Days -3 to 0)
 
 The participant does these before kickoff (Template 2):
+- Install the **Claude desktop app** and turn on **Desktop Commander** ("+", Connectors, Browse Connectors, search "Desktop Commander") so Claude can read their hard drive. Non-negotiable: decades of resumes, decks, proposals, contracts and invoices live there.
 - Request the LinkedIn data export (it takes up to a day).
 - Set up a Claude Project named "Comeback GOAT" and load `PARTICIPANT-PROTOCOL.md` as instructions or a Project file. Claude Code users install the Comeback GOAT plugin instead.
 - Decide the privacy choice (connect Gmail and Drive, upload files or questions only).
 - Gather: latest resume, former employers list with exit dates and terms, the latest separation agreement if any.
 - Write one sentence: the 90-day win.
 
-**Your check (Day 0):** a one-line reply from each participant confirming the export was requested and the Project is set up. Chase anyone missing on Day 0, not Day 1.
+**Your check (Day 0):** a one-line reply from each participant confirming Desktop Commander is on, the export was requested and the Project is set up. Chase anyone missing on Day 0, not Day 1.
 
 ---
 
@@ -80,7 +85,7 @@ The participant does these before kickoff (Template 2):
 | Minute | What happens |
 |---|---|
 | 0 to 5 | Welcome. The rule: "Claude prepares, you press, I coach." The Day 14 target. |
-| 5 to 15 | They open the Project and type "Start my comeback." Watch the setup check. Fix connector issues live. |
+| 5 to 15 | They open the Project and type "Start my comeback." Watch the setup check. Confirm Desktop Commander is connected and the allowed folders are right (Documents, Desktop, Downloads, cloud-sync folders; not tax, medical or bank). Fix connector issues live. |
 | 15 to 40 | Claude harvests while you talk: their best three wins in the last 10 years, who loved their work, which employers they would go back to as a consultant. |
 | 40 to 55 | Claude's gap questions: you help them answer runway, money appetite, constraints, job stance and the never-say list honestly. |
 | 55 to 60 | Confirm daily time slot, days off, focus mode yes or no, the Monday and Thursday group calls. |
@@ -172,14 +177,15 @@ Ask for a testimonial and two referrals (Template 6).
 **Template 1: Acceptance**
 > Subject: You're in: Comeback GOAT founding cohort
 >
-> Hi [Name], great talking today. You have a seat in the founding cohort, starting [Day 1 date]. To confirm it, complete payment here: [payment link] ($997, or 2 × $549). Then do the prerequisites below before [date]; they take about 20 minutes, and the LinkedIn export is the one to start today. Looking forward to it.
+> Hi [Name], great talking today. You have a seat in the founding cohort, starting [Day 1 date]. To confirm it, complete payment here: https://buy.stripe.com/3cI4gAd6R9FX3mCfbwgQE0U ($997), or use the payment plan, 2 × $549, starting here: https://buy.stripe.com/9B614oaYJ6tLf5kfbwgQE0V. Then do the prerequisites below before [date]; they take about 20 minutes, and the LinkedIn export is the one to start today. Looking forward to it.
 
 **Template 2: Prerequisites checklist**
-> 1. Request your LinkedIn data export (Settings, Data privacy, Get a copy of your data, the larger archive).
-> 2. Create a Claude Project called "Comeback GOAT" and add the attached protocol file to it.
-> 3. Decide: connect Gmail and Drive, upload chosen files or answer questions only.
-> 4. Gather your latest resume, a list of former employers with exit dates and terms, and your latest separation agreement if you have one.
-> 5. Write one sentence: what a win looks like in 90 days.
+> 1. Install the Claude desktop app and turn on Desktop Commander: in a chat, "+", Connectors, Browse Connectors, search "Desktop Commander". This lets Claude read the files on your computer.
+> 2. Request your LinkedIn data export (Settings, Data privacy, Get a copy of your data, the larger archive).
+> 3. Create a Claude Project called "Comeback GOAT" and add the attached protocol file to it.
+> 4. Decide: connect Gmail and Drive, upload chosen files or answer questions only.
+> 5. Gather your latest resume, a list of former employers with exit dates and terms, and your latest separation agreement if you have one.
+> 6. Write one sentence: what a win looks like in 90 days.
 > Reply "ready" when done.
 
 **Template 3: Yellow nudge**
