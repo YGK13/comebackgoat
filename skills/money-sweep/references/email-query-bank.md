@@ -2,8 +2,12 @@
 
 Open each candidate thread before trusting it; previews show only the first message. Add `-category:promotions` when noise is high.
 
+Tested on a real inbox (Nov 2026). Two fixes came from that test and apply to every query:
+- Exclude the user's own automated digests: add `-subject:(brief OR digest OR summary)` or exclude threads sent only to themselves (`-to:<their own address>` on `in:sent` queries).
+- Bare words like "inactive" match SaaS account notices; always pair a status word with a money word (account, funds, balance, property).
+
 ## Receivables
-- R1 `in:sent (invoice OR "statement of work" OR SOW OR "payment terms") newer_than:1y` then check each thread for a paid confirmation or a later remittance email.
+- R1 `in:sent (invoice OR "statement of work" OR SOW OR "payment terms") -to:<their own address> newer_than:1y` then check each thread for a paid confirmation or a later remittance email.
 - R2 `("past due" OR overdue OR "payment pending" OR "awaiting payment" OR remittance OR "payment schedule") -category:promotions newer_than:1y`
 - R3 `("signed" OR DocuSign OR "fully executed" OR "countersigned") (agreement OR contract OR SOW OR engagement) newer_than:6m` (signed work that may never have been invoiced)
 
@@ -18,7 +22,7 @@ Open each candidate thread before trusting it; previews show only the first mess
 - F3 `("travel credit" OR "future flight credit" OR voucher OR "e-credit") newer_than:2y`
 
 ## Dormant and lost accounts
-- D1 `(dormant OR inactive OR "unclaimed property" OR escheat OR "abandoned property" OR "transferred to the state") newer_than:5y`
+- D1 `(dormant OR "unclaimed property" OR escheat OR "abandoned property" OR "transferred to the state" OR "Missing Money") (account OR funds OR balance OR property OR claim) newer_than:5y`
 - D2 `(401k OR 401(k) OR 403b OR pension OR "retirement plan" OR "plan administrator" OR rollover) newer_than:10y`
 - D3 `(HSA OR FSA OR "health savings" OR "flexible spending" OR "run-out period") newer_than:3y`
 

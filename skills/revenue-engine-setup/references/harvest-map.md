@@ -4,13 +4,13 @@ Read-only. Work top to bottom; stop a source when two consecutive searches add n
 
 ## 1. Email
 
-Search syntax below is Gmail; translate for Outlook (`from:`, `subject:`, `received>=`). Open threads before trusting a preview: previews often show only the first message.
+Search syntax below is Gmail; translate for Outlook (`from:`, `subject:`, `received>=`). Open threads before trusting a preview: previews often show only the first message. Exclude the user's own automated digests (morning briefs, reports they email themselves) with `-to:<their own address>` on sent-mail queries.
 
 | Goal | Query (start here, then adapt) | Extract |
 |---|---|---|
 | Voice | `in:sent newer_than:180d -in:chats` (read 15 to 25 of their longest sent messages to clients or partners) | sentence length, greeting and sign-off, words they use often, words they never use, 2 short samples |
 | Signature and titles | `in:sent newer_than:30d` (last 5) | current title, company, phone, site, booking link |
-| Clients and revenue | `in:sent (invoice OR "statement of work" OR SOW OR proposal OR retainer) newer_than:2y` | client names, offers, prices, dates; never bank details |
+| Clients and revenue | `in:sent (invoice OR "statement of work" OR SOW OR proposal OR retainer) -to:<their own address> newer_than:2y` | client names, offers, prices, dates; never bank details |
 | Testimonials | `("thank you" OR grateful OR "changed" OR recommend) (coaching OR session OR workshop OR project) -in:sent newer_than:3y` | quotes under 25 words, first name and title only; mark "needs permission to publish" |
 | Visibility | `(podcast OR panel OR keynote OR "speak at" OR webinar OR interview) newer_than:2y` | appearances, audiences, hosts |
 | Prior applications | `(application OR "thank you for applying" OR fellowship OR grant OR accelerator OR RFP) newer_than:2y` | what they applied to, outcomes; prevents re-queuing |
