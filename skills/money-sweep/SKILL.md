@@ -18,7 +18,7 @@ A read-only investigation that turns an inbox, a hard drive and public registrie
 
 ## Before you start
 
-Read `RevenueEngine/context/claims.yaml`, `constraints.yaml` and the `money_sweep` block of `lanes.yaml`. If they are missing, run the `revenue-engine-setup` skill first, or for a one-off sweep ask in one message: legal and former names, business names (current and dissolved), every state and country lived or worked in with rough years, past employers with retirement plans, and the date they left their last job if within 2 years.
+Read `RevenueEngine/context/claims.yaml`, `constraints.yaml` and the `money_sweep` block of `lanes.yaml`. If they are missing, run the `revenue-engine-setup` skill first, or for a one-off sweep ask in one message: legal and former names, business names (current and dissolved), every state and country lived or worked in with rough years, past employers with retirement plans and the date they left their last job if within 2 years.
 
 ## The sweep (work through `references/source-checklist.md`)
 

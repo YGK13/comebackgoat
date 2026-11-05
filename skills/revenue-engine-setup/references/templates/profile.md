@@ -3,7 +3,7 @@
 As of <YYYY-MM-DD>. Human-readable view of the pack. Facts here must also be in `claims.yaml`.
 
 ## In one line
-<Who you help, with what, and the result, in under 20 words.>
+<Who you help, with what and the result, in under 20 words.>
 
 ## What you sell
 | Offer | Who it is for | Price or range | Proof |

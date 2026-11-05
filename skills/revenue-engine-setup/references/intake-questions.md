@@ -16,7 +16,7 @@ Ask only what the harvest did not answer with a source. Group into at most 3 rou
 **Grants and free money**
 - Entity: legal name, type (sole prop, LLC, S-corp, C-corp, nonprofit), state, formation date, active status. EIN: only "yes / not yet". Never the number.
 - Revenue stage: pre-revenue / under $50K / $50K to $250K / $250K+ (last 12 months).
-- Optional and explained: "Some grants are only for businesses owned by women, veterans, people of color, people with disabilities, or in rural or low-income areas. Want me to screen for any of these? Skip is fine." Store only what they choose to share.
+- Optional and explained: "Some grants are only for businesses owned by women, veterans, people of color, people with disabilities or in rural or low-income areas. Want me to screen for any of these? Skip is fine." Store only what they choose to share.
 - Will they relocate or attend in person for a program? For how long?
 
 **Projects and clients**

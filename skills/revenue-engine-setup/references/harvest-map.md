@@ -37,4 +37,4 @@ QuickBooks, Stripe, Mercury, PayPal: customer names, invoice totals and dates, o
 
 ## Done when
 
-`evidence.md` has at least: current title and offer, 3 proof points with sources, 1 voice sample, contact facts, location facts, and either a resume or a LinkedIn profile. If any is missing, it becomes a question in Step 4.
+`evidence.md` has at least: current title and offer, 3 proof points with sources, 1 voice sample, contact facts, location facts and either a resume or a LinkedIn profile. If any is missing, it becomes a question in Step 4.

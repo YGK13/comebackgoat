@@ -5,7 +5,7 @@ description: Find and prepare no-equity money for a solo business or nonprofit -
 
 # Grant Hunter
 
-No-equity money is real but small, slow and competitive for most solo operators. The engine's job is to find the few programs the user actually qualifies for, prepare them so applying costs minutes, and keep the hit rate honest. Reach the user with fewer, better items, never a long list of maybes.
+No-equity money is real but small, slow and competitive for most solo operators. The engine's job is to find the few programs the user actually qualifies for, prepare them so applying costs minutes and keep the hit rate honest. Reach the user with fewer, better items, never a long list of maybes.
 
 ## Non-negotiables
 
