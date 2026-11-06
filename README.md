@@ -5,7 +5,7 @@
 | Skill | What it does | First-run time |
 |---|---|---|
 | **comeback-setup** | Reads your email, files and public web presence, asks only what it can't find, and builds your Founder Context Pack: the facts you can prove, your voice, your constraints, your bios. Flags every place your resume, LinkedIn and site disagree. | about 20 min |
-| **money-sweep** | Finds money you're already owed or about to lose: unpaid invoices, payouts, refunds, dormant accounts, unclaimed property, and severance, equity and benefits deadlines if you left a job in the last 2 years. | 15 to 30 min |
+| **money-sweep** | Finds money you're already owed or about to lose (unpaid invoices, payouts, refunds, dormant accounts, unclaimed property, severance and equity deadlines) and money leaking out every month: a personal-CFO audit of 12 months of spend that scores every merchant KEEP, WATCH or CUT, re-shops your bills at live prices and drafts the cancel and negotiation emails. | 15 to 30 min, plus 30 min for the spend audit |
 | **grant-hunter** | No-equity money you actually qualify for (grants, fellowships, prizes, pitch competitions, credits), verified open, scam-filtered, prepared to the last click. | 15 min per run |
 | **project-hunter** | Paid work: inbound requests, warm-network reactivation, public "looking for" posts, fractional roles, RFPs, expert calls, workshops, speaking. Drafts every reply in your voice. | 15 min per run |
 | **job-insurance** | A quiet, capped, verified job search in the background. Tailored resume and filled form for each role; you press Submit. | 20 min per run |

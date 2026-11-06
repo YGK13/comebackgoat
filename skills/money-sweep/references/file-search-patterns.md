@@ -12,6 +12,10 @@ Search names first, then contents. Skip folders the user marked private. Never c
 | Invoices | `invoice`, `INV-`, `receipt` | "due", "balance" | unpaid receivables |
 | Leases and deposits | `lease`, `deposit` | "security deposit", "return within" | deposit owed back |
 | Insurance | `EOB`, `claim`, `reimbursement` | "amount owed", "patient responsibility" | unpaid reimbursements |
+| Bank and card exports | `.csv`, `.xlsx`, `.ofx`, `transactions`, `export`, institution names | date, amount, merchant columns | leak mode input (12+ months) |
+| Subscription and billing PDFs | `invoice`, `receipt`, `subscription`, `חשבונית` | "renews", "per month", "per user" | recurring charges and seats |
 | Settlement letters | `settlement`, `claim` | "claim ID", "administrator" | open claim windows |
 
 On Windows the user's Documents, Downloads and Desktop folders hold most of these; on Mac the same plus iCloud Drive. Use the device bridge or a connected folder only; never ask for remote access to the whole disk.
+
+Browser history (Chrome `History` SQLite file or a connected browser): list visited billing, "manage subscription", "plans" and "cancel" pages from the last 12 months by domain; each domain is a candidate recurring charge. Read only domains and titles, never form contents or saved passwords.
