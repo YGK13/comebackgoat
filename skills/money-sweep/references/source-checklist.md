@@ -21,3 +21,9 @@ Mark every row `found`, `nothing` or `could not check (why)`. The ledger's "Coul
 | G2 | Savings bonds | public-registries.md | weeks |
 | G3 | Class-action settlements with open claim windows | email query S1, public-registries.md | months |
 | H1 | Country modules (lived or worked abroad) | public-registries.md | varies |
+| L1 | Bank and card exports, 12+ months, every account | `spend-audit.md` stage 1 | savings start next cycle |
+| L2 | Billing emails: receipts, renewals, price changes, trials, failed payments | `spend-query-bank.md` L1-L11 | next cycle |
+| L3 | Fees: card FX, ATM, bank, late, interest | transactions plus query L9 | next cycle |
+| L4 | Browser history: billing and plan pages visited | connected browser or history export | next cycle |
+| L5 | Re-shop renewing bills (phone, internet, energy, insurance, mailbox, domains, software) | `reshop-and-scripts.md` | at renewal |
+| L6 | Debt plans (student loans, card APRs) and pension or insurance fees | query L12-L13, country module | months; often the largest yearly saving |

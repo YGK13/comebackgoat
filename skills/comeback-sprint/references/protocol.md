@@ -196,6 +196,7 @@ For each former employer: status **eligible** (no active restriction), **blocked
 - Unsent drafts older than 2 days that relate to money.
 - Exit money with deadlines: severance terms, COBRA election windows, stock option exercise windows (often 90 days after leaving for ISOs), FSA or HSA run-out, 401(k) decisions, unused vacation payout rules.
 - Unclaimed property: point them to their state's official unclaimed property site and MissingMoney.com; list states they lived or worked in. They search; you never enter ID numbers.
+- Leaks (quick pass): recurring charges from the last 12 months of receipts and card exports, each scored KEEP, WATCH or CUT; failed-payment bursts; card FX and bank fees; tools that duplicate each other. Draft the cancel or downgrade emails for the CUTs; they press Send.
 List each item with the amount (only if the source states it), deadline and next action.
 
 ### 7.4 Design ONE offer (the minimum sellable unit)

@@ -58,7 +58,7 @@ Tell them: Settings, Capabilities, scroll to **Skills**, click **Upload skill** 
 | Required | daily-plan | Ranks each day's moves by distance to money |
 | Required | network-engine | Finds your warmest paths in |
 | Required | boomerang | Former employers you could return to as a consultant |
-| Required | money-sweep | Money you're already owed |
+| Required | money-sweep | Money you're already owed, plus a spend audit that finds where you overpay |
 | Required | comeback-doctor | Checks this setup any time something feels off |
 | Optional | project-hunter | Paid projects, expert calls, inbound requests |
 | Optional | job-insurance | Bridge roles, if you want them |
